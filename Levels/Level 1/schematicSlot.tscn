@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cygm1tygqdp60"]
+
+[ext_resource type="Script" uid="uid://4o0vmhu5od5r" path="res://Scripts/schematicSlot.gd" id="1_pbo8g"]
+[ext_resource type="Texture2D" uid="uid://eam3t3e123dv" path="res://Textures/Schematic Glow.png" id="2_4ulp0"]
+[ext_resource type="Texture2D" uid="uid://74qccpwyahip" path="res://Textures/Schematic Slot.png" id="2_dj4cq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei017"]
+size = Vector2(88, 52)
+
+[node name="Schematic Slot 1" type="Node2D"]
+script = ExtResource("1_pbo8g")
+
+[node name="Correction" type="Sprite2D" parent="."]
+position = Vector2(0, -21)
+scale = Vector2(0.15297447, 0.1529745)
+texture = ExtResource("2_4ulp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.22499993, 0.225)
+texture = ExtResource("2_dj4cq")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ei017")

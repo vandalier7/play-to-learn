@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkvgj3bp7ewqy"]
+
+[ext_resource type="Texture2D" uid="uid://dwq8evmc6aka8" path="res://icon.svg" id="1_ci0g7"]
+[ext_resource type="Script" uid="uid://bfvs4qw4erasu" path="res://Scripts/draggable.gd" id="1_ups7w"]
+[ext_resource type="Script" uid="uid://djogibs1q22gj" path="res://Scripts/draggableArea.gd" id="3_6be27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1uyw"]
+size = Vector2(78, 78)
+
+[node name="Draggable" type="Node2D"]
+script = ExtResource("1_ups7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.609375, 0.609375)
+texture = ExtResource("1_ci0g7")
+
+[node name="DraggableArea" type="Area2D" parent="."]
+script = ExtResource("3_6be27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableArea"]
+shape = SubResource("RectangleShape2D_l1uyw")

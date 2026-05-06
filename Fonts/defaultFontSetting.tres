@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://gsr3guyh8vjp"]
+
+[ext_resource type="FontFile" uid="uid://bejfdomp8dnhx" path="res://Fonts/Brunson.ttf" id="1_v8py6"]
+
+[resource]
+font = ExtResource("1_v8py6")
+font_size = 23
+font_color = Color(0, 0, 0, 1)
