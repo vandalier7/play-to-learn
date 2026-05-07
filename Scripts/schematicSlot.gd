@@ -1,6 +1,6 @@
 extends Slot
 
-const displayDuration: float = 2.0
+const displayDuration: float = 3.0
 
 @export var matchedObject: String
 
@@ -8,6 +8,9 @@ const displayDuration: float = 2.0
 
 var targetColor: Color = Color.TRANSPARENT
 var displayTime: float = 0
+
+func _ready() -> void:
+	SignalBus.answerSubmitted.connect(check)
 
 func check():
 	displayTime = displayDuration
@@ -22,6 +25,9 @@ func check():
 		targetColor = Color.GREEN
 	else:
 		targetColor = Color.RED
+		customAnimator.triggerShake()
+		await get_tree().create_timer(0.2).timeout
+		_releaseObject()
 	
 	
 
@@ -30,9 +36,6 @@ func _process(delta: float) -> void:
 	
 	if displayTime == 0:
 		targetColor = Color.TRANSPARENT
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		check()
 	
 	correction.modulate = lerp(correction.modulate, targetColor, 0.2)
 	

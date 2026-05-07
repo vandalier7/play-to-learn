@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdxgl4pcyqedd"]
+
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="1_6ygub"]
+
+[node name="CustomAnimator" type="Node"]
+script = ExtResource("1_6ygub")

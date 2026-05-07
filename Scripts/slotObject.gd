@@ -17,8 +17,6 @@ func _process(delta: float) -> void:
 	if not isSlotted:
 		global_position = lerp(global_position, origin, LERP_SPEED)
 	
-	
-	
 	if isHolding:
 		holdingLock = false
 		if is_instance_valid(slot) and slot.slottedObject == self:
@@ -30,10 +28,11 @@ func _process(delta: float) -> void:
 	elif not holdingLock and is_instance_valid(slot):
 		holdingLock = true
 		slot.receiveObject(self)
-		snapTo(slot.global_position, SNAP_SPEED)
+		customAnimator.snapTo(slot.global_position, SNAP_SPEED)
 		
 	
-	shake(isHolding and isSlotted)
+	
+	customAnimator.titter(isHolding and isSlotted)
 	
 	# this makes the object follow the cursor if it is pressed
 	# as it is the currently the last call in the frame, it overrides all global pos changes

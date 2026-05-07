@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cygm1tygqdp60"]
+[gd_scene load_steps=6 format=3 uid="uid://cygm1tygqdp60"]
 
 [ext_resource type="Script" uid="uid://4o0vmhu5od5r" path="res://Scripts/schematicSlot.gd" id="1_pbo8g"]
 [ext_resource type="Texture2D" uid="uid://eam3t3e123dv" path="res://Textures/Schematic Glow.png" id="2_4ulp0"]
 [ext_resource type="Texture2D" uid="uid://74qccpwyahip" path="res://Textures/Schematic Slot.png" id="2_dj4cq"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="4_4ulp0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei017"]
 size = Vector2(88, 52)
@@ -25,3 +26,5 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ei017")
+
+[node name="CustomAnimator" parent="." instance=ExtResource("4_4ulp0")]

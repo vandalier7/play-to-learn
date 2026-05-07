@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cu6knafear7ar"]
+
+[ext_resource type="FontFile" uid="uid://bn0ee3yesvk57" path="res://Fonts/ProximaNovaA-Semibold.ttf" id="1_e1x85"]
+
+[resource]
+default_font = ExtResource("1_e1x85")
+default_font_size = 35

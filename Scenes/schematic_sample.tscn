@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://q232d5rn06c4"]
+[gd_scene load_steps=13 format=3 uid="uid://q232d5rn06c4"]
 
 [ext_resource type="Texture2D" uid="uid://bq4kdjpm750kl" path="res://UI/White Window.png" id="1_ei017"]
-[ext_resource type="LabelSettings" uid="uid://gsr3guyh8vjp" path="res://Fonts/defaultFontSetting.tres" id="2_scif7"]
+[ext_resource type="LabelSettings" uid="uid://r7d8cgv2p44v" path="res://Fonts/titleFont.tres" id="2_5unkb"]
 [ext_resource type="Texture2D" uid="uid://dypnoqcwx3hn5" path="res://Textures/Schematic Line.png" id="3_cwn0i"]
 [ext_resource type="PackedScene" uid="uid://cygm1tygqdp60" path="res://Levels/Level 1/schematicSlot.tscn" id="3_sua0s"]
+[ext_resource type="LabelSettings" uid="uid://dyt7pbsiq8oxd" path="res://Fonts/normalText.tres" id="3_um58e"]
+[ext_resource type="PackedScene" uid="uid://dyj5feekwuo22" path="res://Objects/submitButton.tscn" id="4_ba3hq"]
+[ext_resource type="Script" uid="uid://wty31arxbg7x" path="res://Levels/Level 1/slotsHandler.gd" id="5_7c6my"]
 [ext_resource type="Script" uid="uid://cqc3in5wnjs53" path="res://Scripts/schematicObject.gd" id="5_scif7"]
 [ext_resource type="Texture2D" uid="uid://36fujjqy36xe" path="res://Textures/All.png" id="6_scif7"]
 [ext_resource type="Script" uid="uid://djogibs1q22gj" path="res://Scripts/draggableArea.gd" id="7_um58e"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="9_um58e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ups7w"]
 size = Vector2(72, 44)
@@ -27,10 +31,10 @@ color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.050347224
-anchor_top = 0.20061728
-anchor_right = 0.942118
-anchor_bottom = 0.80274075
+anchor_left = 0.0390625
+anchor_top = 0.06481481
+anchor_right = 0.95340276
+anchor_bottom = 0.5728025
 offset_right = -0.3199997
 offset_bottom = -0.1760025
 texture = ExtResource("1_ei017")
@@ -40,54 +44,98 @@ patch_margin_right = 100
 patch_margin_bottom = 150
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 115.0
-offset_top = 434.0
-offset_right = 475.0
-offset_bottom = 460.0
-text = "(Temporary) Press Space to check results."
-label_settings = ExtResource("2_scif7")
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.14409722
+anchor_top = 0.5123457
+anchor_right = 0.84836805
+anchor_bottom = 0.7687901
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+texture = ExtResource("1_ei017")
+patch_margin_left = 100
+patch_margin_top = 50
+patch_margin_right = 100
+patch_margin_bottom = 100
+metadata/_edit_use_anchors_ = true
 
-[node name="Line" type="Sprite2D" parent="."]
+[node name="Title" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.09479167
+anchor_top = 0.14530864
+anchor_right = 0.8989792
+anchor_bottom = 0.48160496
+offset_left = -0.20000458
+offset_top = -0.16000366
+offset_right = 0.37597656
+offset_bottom = -0.08001709
+text = "Schematic Diagram"
+label_settings = ExtResource("2_5unkb")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Instructions" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.09479167
+anchor_top = 0.21938272
+anchor_right = 0.8989792
+anchor_bottom = 0.48160496
+offset_left = -0.20000458
+offset_top = -0.16000366
+offset_right = 0.37597656
+offset_bottom = -0.08001709
+text = "Drag and drop the correct schematic symbol to their respective places, to create a schematic diagram for a single-acting cylinder."
+label_settings = ExtResource("3_um58e")
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" parent="CanvasLayer" instance=ExtResource("4_ba3hq")]
+mouse_default_cursor_shape = 8
+disabled = true
+
+[node name="SlotsHandler" type="Node2D" parent="."]
+position = Vector2(0, 34)
+script = ExtResource("5_7c6my")
+
+[node name="Schematic Slot 1" parent="SlotsHandler" instance=ExtResource("3_sua0s")]
+position = Vector2(255, 225)
+matchedObject = "A"
+
+[node name="Schematic Slot 2" parent="SlotsHandler" instance=ExtResource("3_sua0s")]
+position = Vector2(360, 225)
+matchedObject = "B"
+
+[node name="Schematic Slot 3" parent="SlotsHandler" instance=ExtResource("3_sua0s")]
+position = Vector2(466, 225)
+matchedObject = "C"
+
+[node name="Schematic Slot 4" parent="SlotsHandler" instance=ExtResource("3_sua0s")]
+position = Vector2(573, 225)
+matchedObject = "D"
+
+[node name="Schematic Slot 5" parent="SlotsHandler" instance=ExtResource("3_sua0s")]
+position = Vector2(680, 225)
+matchedObject = "E"
+
+[node name="Schematic Slot 6" parent="SlotsHandler" instance=ExtResource("3_sua0s")]
+position = Vector2(785, 225)
+matchedObject = "F"
+
+[node name="Schematic Slot 7" parent="SlotsHandler" instance=ExtResource("3_sua0s")]
+position = Vector2(891, 225)
+matchedObject = "G"
+
+[node name="Line" type="Sprite2D" parent="SlotsHandler"]
 z_index = -1
 position = Vector2(555, 225)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_cwn0i")
 
-[node name="Slots" type="Node2D" parent="."]
-
-[node name="Schematic Slot 1" parent="Slots" instance=ExtResource("3_sua0s")]
-position = Vector2(255, 225)
-matchedObject = "Test"
-
-[node name="Schematic Slot 2" parent="Slots" instance=ExtResource("3_sua0s")]
-position = Vector2(360, 225)
-matchedObject = "A"
-
-[node name="Schematic Slot 3" parent="Slots" instance=ExtResource("3_sua0s")]
-position = Vector2(466, 225)
-matchedObject = "C"
-
-[node name="Schematic Slot 4" parent="Slots" instance=ExtResource("3_sua0s")]
-position = Vector2(573, 225)
-matchedObject = "B"
-
-[node name="Schematic Slot 5" parent="Slots" instance=ExtResource("3_sua0s")]
-position = Vector2(680, 225)
-matchedObject = "Test"
-
-[node name="Schematic Slot 6" parent="Slots" instance=ExtResource("3_sua0s")]
-position = Vector2(785, 225)
-matchedObject = "Test"
-
-[node name="Schematic Slot 7" parent="Slots" instance=ExtResource("3_sua0s")]
-position = Vector2(891, 225)
-matchedObject = "Test"
-
 [node name="SlotObject" type="Node2D" parent="."]
-position = Vector2(233, 378)
+position = Vector2(291, 410)
 script = ExtResource("5_scif7")
-objectName = "Test"
+objectName = "F"
 
 [node name="Sprite2D" type="Sprite2D" parent="SlotObject"]
 scale = Vector2(0.30463576, 0.3046358)
@@ -102,10 +150,12 @@ script = ExtResource("7_um58e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject/DraggableArea"]
 shape = SubResource("RectangleShape2D_ups7w")
 
+[node name="CustomAnimator" parent="SlotObject" instance=ExtResource("9_um58e")]
+
 [node name="SlotObject2" type="Node2D" parent="."]
-position = Vector2(328, 378)
+position = Vector2(386, 410)
 script = ExtResource("5_scif7")
-objectName = "A"
+objectName = "D"
 
 [node name="Sprite2D" type="Sprite2D" parent="SlotObject2"]
 scale = Vector2(0.38095257, 0.3809526)
@@ -120,10 +170,12 @@ script = ExtResource("7_um58e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject2/DraggableArea"]
 shape = SubResource("RectangleShape2D_ups7w")
 
+[node name="CustomAnimator" parent="SlotObject2" instance=ExtResource("9_um58e")]
+
 [node name="SlotObject3" type="Node2D" parent="."]
-position = Vector2(426, 378)
+position = Vector2(484, 410)
 script = ExtResource("5_scif7")
-objectName = "B"
+objectName = "C"
 
 [node name="Sprite2D" type="Sprite2D" parent="SlotObject3"]
 scale = Vector2(0.3307084, 0.33070847)
@@ -138,10 +190,12 @@ script = ExtResource("7_um58e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject3/DraggableArea"]
 shape = SubResource("RectangleShape2D_ups7w")
 
+[node name="CustomAnimator" parent="SlotObject3" instance=ExtResource("9_um58e")]
+
 [node name="SlotObject4" type="Node2D" parent="."]
-position = Vector2(519, 378)
+position = Vector2(577, 410)
 script = ExtResource("5_scif7")
-objectName = "C"
+objectName = "E"
 
 [node name="Sprite2D" type="Sprite2D" parent="SlotObject4"]
 scale = Vector2(0.34328327, 0.34328333)
@@ -155,3 +209,68 @@ script = ExtResource("7_um58e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject4/DraggableArea"]
 shape = SubResource("RectangleShape2D_ups7w")
+
+[node name="CustomAnimator" parent="SlotObject4" instance=ExtResource("9_um58e")]
+
+[node name="SlotObject5" type="Node2D" parent="."]
+position = Vector2(670, 410)
+script = ExtResource("5_scif7")
+objectName = "A"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject5"]
+position = Vector2(0, -1)
+scale = Vector2(0.5714284, 0.5714285)
+texture = ExtResource("6_scif7")
+region_enabled = true
+region_rect = Rect2(142.43958, 637.52405, 71.40596, 63.333984)
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject5"]
+collision_mask = 2
+script = ExtResource("7_um58e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject5/DraggableArea"]
+shape = SubResource("RectangleShape2D_ups7w")
+
+[node name="CustomAnimator" parent="SlotObject5" instance=ExtResource("9_um58e")]
+
+[node name="SlotObject6" type="Node2D" parent="."]
+position = Vector2(762, 410)
+script = ExtResource("5_scif7")
+objectName = "G"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject6"]
+position = Vector2(-2, 1)
+scale = Vector2(0.2982455, 0.29824555)
+texture = ExtResource("6_scif7")
+region_enabled = true
+region_rect = Rect2(410.60886, 5.0336227, 272.32266, 114.199844)
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject6"]
+collision_mask = 2
+script = ExtResource("7_um58e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject6/DraggableArea"]
+shape = SubResource("RectangleShape2D_ups7w")
+
+[node name="CustomAnimator" parent="SlotObject6" instance=ExtResource("9_um58e")]
+
+[node name="SlotObject7" type="Node2D" parent="."]
+position = Vector2(850, 410)
+script = ExtResource("5_scif7")
+objectName = "B"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject7"]
+position = Vector2(2, 1)
+scale = Vector2(0.4166669, 0.41666698)
+texture = ExtResource("6_scif7")
+region_enabled = true
+region_rect = Rect2(80.48334, 454.87537, 190.77951, 120.041016)
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject7"]
+collision_mask = 2
+script = ExtResource("7_um58e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject7/DraggableArea"]
+shape = SubResource("RectangleShape2D_ups7w")
+
+[node name="CustomAnimator" parent="SlotObject7" instance=ExtResource("9_um58e")]

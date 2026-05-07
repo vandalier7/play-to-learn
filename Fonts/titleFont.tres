@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://r7d8cgv2p44v"]
+
+[ext_resource type="FontFile" uid="uid://bn0ee3yesvk57" path="res://Fonts/ProximaNovaA-Semibold.ttf" id="1_w2p5r"]
+
+[resource]
+font = ExtResource("1_w2p5r")
+font_size = 37
+font_color = Color(0.13803378, 0.13803375, 0.13803375, 1)
+outline_size = 2
+outline_color = Color(0.13725491, 0.13725491, 0.13725491, 1)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyj5feekwuo22"]
+
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="1_cc7do"]
+[ext_resource type="Script" uid="uid://cia63gl2q2axo" path="res://Scripts/submitButton.gd" id="2_kixgx"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="3_kixgx"]
+
+[node name="Button" type="Button"]
+anchors_preset = -1
+anchor_left = 0.36631945
+anchor_top = 0.78858024
+anchor_right = 0.6336806
+anchor_bottom = 0.9074074
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(153, 38)
+focus_mode = 0
+theme = ExtResource("1_cc7do")
+text = "SUBMIT"
+script = ExtResource("2_kixgx")
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="." instance=ExtResource("3_kixgx")]
+shakeTime = 0.3
+shakeMagnitude = 5.0
+shakeSpeed = 8.0
