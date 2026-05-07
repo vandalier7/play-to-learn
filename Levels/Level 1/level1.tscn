@@ -1,3 +1,146 @@
-[gd_scene format=3 uid="uid://c8r4204x6484o"]
+[gd_scene load_steps=20 format=3 uid="uid://c8r4204x6484o"]
 
-[node name="Level1" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://swp8cralcbsc" path="res://Environment/Idea.png" id="1_bn0cs"]
+[ext_resource type="PackedScene" uid="uid://dwe1j704t602o" path="res://Objects/talker.tscn" id="1_wao6c"]
+[ext_resource type="Texture2D" uid="uid://b1op4y18g35ox" path="res://Environment/TABLE.png" id="2_2ygl3"]
+[ext_resource type="PackedScene" uid="uid://fc6lg40248kl" path="res://Objects/director.tscn" id="2_gqw0x"]
+[ext_resource type="Texture2D" uid="uid://bv2q783j7vwud" path="res://Environment/Sheets/fan.png" id="4_iek6k"]
+[ext_resource type="Script" uid="uid://cqkx7b6343k2t" path="res://Scripts/looper.gd" id="5_ja7ui"]
+[ext_resource type="PackedScene" uid="uid://teifbalowpp0" path="res://Objects/eventSignal.tscn" id="5_veok0"]
+[ext_resource type="Script" uid="uid://b5rt5qsw5ka3e" path="res://Levels/Level 1/studyActivity.gd" id="6_cat5w"]
+[ext_resource type="PackedScene" uid="uid://dxfa2ovfwangq" path="res://Objects/infoWindow.tscn" id="7_c6mww"]
+[ext_resource type="PackedScene" uid="uid://c6hfv1alypfi7" path="res://Levels/Level 1/component.tscn" id="9_1xesq"]
+[ext_resource type="Texture2D" uid="uid://cpbnphin4pary" path="res://Textures/Schema/Compressor.png" id="9_o3il5"]
+[ext_resource type="Texture2D" uid="uid://otsys1mvisfn" path="res://Textures/2D/Compressor 2D.png" id="10_o3il5"]
+[ext_resource type="PackedScene" uid="uid://d178ehinyvdj1" path="res://Objects/clickable.tscn" id="11_o3il5"]
+[ext_resource type="PackedScene" uid="uid://cmushxh1lro1m" path="res://Objects/glow.tscn" id="12_8220b"]
+[ext_resource type="Texture2D" uid="uid://brq4vp6iphqr6" path="res://Textures/Schema/Air Tank.png" id="13_wmy8f"]
+[ext_resource type="Texture2D" uid="uid://w1qrb6hkb0kj" path="res://Textures/2D/Tank 2D.png" id="14_veok0"]
+[ext_resource type="PackedScene" uid="uid://uaclj4i3j5mv" path="res://Objects/sceneTransitioner.tscn" id="17_7ktv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8220b"]
+size = Vector2(72, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cat5w"]
+size = Vector2(106, 60)
+
+[node name="Level1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Environment" type="TextureRect" parent="."]
+z_index = -999
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00044444535
+anchor_top = -0.015876547
+anchor_right = 1.0004444
+anchor_bottom = 1.0112469
+offset_left = 0.51200104
+offset_top = 0.288002
+offset_right = -0.5119629
+offset_bottom = -0.2880249
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_bn0cs")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Table" type="Sprite2D" parent="Environment"]
+position = Vector2(585, 389)
+scale = Vector2(0.6575, 0.6575)
+texture = ExtResource("2_2ygl3")
+
+[node name="Fan" type="Sprite2D" parent="Environment"]
+position = Vector2(1018.0814, 90.875)
+scale = Vector2(0.4610092, 0.46100917)
+texture = ExtResource("4_iek6k")
+hframes = 6
+frame = 5
+script = ExtResource("5_ja7ui")
+frameInterval = 0.12
+
+[node name="Events" type="Node" parent="."]
+
+[node name="EventSignal" parent="Events" instance=ExtResource("5_veok0")]
+signalName = "componentInspected"
+
+[node name="ClickAllComps" type="Node" parent="Events" node_paths=PackedStringArray("components")]
+script = ExtResource("6_cat5w")
+components = [NodePath("../../Compressor"), NodePath("../../Component2")]
+
+[node name="Director" parent="." node_paths=PackedStringArray("sequence") instance=ExtResource("2_gqw0x")]
+sequence = [NodePath("../UI/Talker"), NodePath("../Events/EventSignal"), NodePath("../UI/Talker2"), NodePath("../Events/ClickAllComps"), NodePath("../UI/Talker3")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Talker" parent="UI" instance=ExtResource("1_wao6c")]
+visible = false
+lines = PackedStringArray("Welcome to our training room, Engineer!\nLet\'s get to know what these components are.", "Let us begin by clicking on one of the glowing components.")
+
+[node name="Talker2" parent="UI" instance=ExtResource("1_wao6c")]
+visible = false
+lines = PackedStringArray("Nice! We got to know one already! Now, on to the rest of the components.")
+
+[node name="Talker3" parent="UI" instance=ExtResource("1_wao6c")]
+visible = false
+lines = PackedStringArray("With these new parts introduced, let\'s take on a challenge!")
+
+[node name="InfoWindow" parent="UI" instance=ExtResource("7_c6mww")]
+visible = false
+anchors_preset = -1
+anchor_top = -0.031000001
+anchor_bottom = 0.96900004
+offset_top = 0.08800125
+offset_bottom = 0.08795166
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Compressor" parent="." node_paths=PackedStringArray("infoWindow") instance=ExtResource("9_1xesq")]
+position = Vector2(489, 287)
+componentName = "Air Compressor"
+description = "Converts mechanical power (from an electric motor or engine) into pneumatic energy by compressing atmospheric air."
+textureSchematic = ExtResource("9_o3il5")
+infoWindow = NodePath("../UI/InfoWindow")
+
+[node name="Sprite2D" type="Sprite2D" parent="Compressor"]
+scale = Vector2(0.37, 0.37)
+texture = ExtResource("10_o3il5")
+
+[node name="ClickableBehavior" parent="Compressor" instance=ExtResource("11_o3il5")]
+
+[node name="CollisionShape2D" parent="Compressor/ClickableBehavior" index="0"]
+shape = SubResource("RectangleShape2D_8220b")
+
+[node name="Glow" parent="Compressor" instance=ExtResource("12_8220b")]
+
+[node name="Component2" parent="." node_paths=PackedStringArray("infoWindow") instance=ExtResource("9_1xesq")]
+position = Vector2(666, 302)
+componentName = "Air Tank Reservoir"
+description = "Stores compressed air to smooth out pressure pulsations and acts as a buffer to meet peak demand."
+textureSchematic = ExtResource("13_wmy8f")
+infoWindow = NodePath("../UI/InfoWindow")
+
+[node name="Sprite2D" type="Sprite2D" parent="Component2"]
+scale = Vector2(0.37, 0.37)
+texture = ExtResource("14_veok0")
+
+[node name="ClickableBehavior" parent="Component2" instance=ExtResource("11_o3il5")]
+
+[node name="CollisionShape2D" parent="Component2/ClickableBehavior" index="0"]
+shape = SubResource("RectangleShape2D_cat5w")
+
+[node name="Glow" parent="Component2" instance=ExtResource("12_8220b")]
+
+[node name="SceneTransitioner" parent="." instance=ExtResource("17_7ktv1")]
+layout_mode = 1
+
+[editable path="Compressor/ClickableBehavior"]
+[editable path="Component2/ClickableBehavior"]

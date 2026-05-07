@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://fc6lg40248kl"]
+
+[ext_resource type="Script" uid="uid://dkxvpk83lw1ih" path="res://Scripts/director.gd" id="1_viefy"]
+
+[node name="Director" type="Node" node_paths=PackedStringArray("sequence")]
+script = ExtResource("1_viefy")
+sequence = [null]

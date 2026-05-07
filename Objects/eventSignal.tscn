@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://teifbalowpp0"]
+
+[ext_resource type="Script" uid="uid://byq1v6fcgsoxi" path="res://Scripts/eventSignal.gd" id="1_x3uq8"]
+
+[node name="EventSignal" type="Node"]
+script = ExtResource("1_x3uq8")

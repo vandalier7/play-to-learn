@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0krljwkcvr5"]
+
+[ext_resource type="Script" uid="uid://bb25netk33i7r" path="res://Scripts/dialogueAnimator.gd" id="1_hyqct"]
+
+[node name="DialogueAnimator" type="Node"]
+script = ExtResource("1_hyqct")

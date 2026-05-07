@@ -1,0 +1,179 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxfa2ovfwangq"]
+
+[ext_resource type="Texture2D" uid="uid://2duane1shae6" path="res://UI/Info Window.png" id="1_2lssn"]
+[ext_resource type="Script" uid="uid://d2jd5tpicebov" path="res://Scripts/infoWindow.gd" id="1_f4db5"]
+[ext_resource type="Texture2D" uid="uid://c7ty5pgoha2ff" path="res://UI/thinLightPanel.png" id="2_ac0ya"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="2_x5hm6"]
+[ext_resource type="Texture2D" uid="uid://b248jvnnub1pm" path="res://UI/Okay.png" id="3_fp0l4"]
+[ext_resource type="Texture2D" uid="uid://cpbnphin4pary" path="res://Textures/Schema/Compressor.png" id="4_7dgr8"]
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="4_tqlp7"]
+[ext_resource type="Texture2D" uid="uid://otsys1mvisfn" path="res://Textures/2D/Compressor 2D.png" id="5_f4db5"]
+
+[node name="InfoWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f4db5")
+
+[node name="CustomAnimator" parent="." instance=ExtResource("2_x5hm6")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2lssn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Panel1" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5321181
+anchor_top = 0.45524693
+anchor_right = 0.7604167
+anchor_bottom = 0.7577161
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ac0ya")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07984791
+anchor_top = 0.24489792
+anchor_right = 0.92015207
+anchor_bottom = 0.8367346
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_7dgr8")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23958333
+anchor_top = 0.45524693
+anchor_right = 0.46788195
+anchor_bottom = 0.7577161
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ac0ya")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07984791
+anchor_top = 0.24489792
+anchor_right = 0.92015207
+anchor_bottom = 0.8367346
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_f4db5")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8237847
+anchor_top = 0.7021605
+anchor_right = 0.8958333
+anchor_bottom = 0.80246913
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_fp0l4")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35069445
+anchor_top = 0.20216049
+anchor_right = 0.6493056
+anchor_bottom = 0.2665556
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_tqlp7")
+theme_override_font_sizes/normal_font_size = 26
+text = "Air Compressor"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23177083
+anchor_top = 0.28703704
+anchor_right = 0.7682292
+anchor_bottom = 0.45019758
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_tqlp7")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Converts mechanical power (from an electric motor or engine) into pneumatic energy by compressing atmospheric air.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="2D" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2482639
+anchor_top = 0.46296296
+anchor_right = 0.4609375
+anchor_bottom = 0.7356914
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_tqlp7")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "2D"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Symbol" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5399306
+anchor_top = 0.46296296
+anchor_right = 0.7526042
+anchor_bottom = 0.7356914
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_tqlp7")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "SCHEMATIC SYMBOL"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="TextureButton" to="." method="close"]

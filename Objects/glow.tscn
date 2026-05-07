@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmushxh1lro1m"]
+
+[ext_resource type="Texture2D" uid="uid://eam3t3e123dv" path="res://Textures/Schematic Glow.png" id="1_fl2q7"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="2_u8egr"]
+[ext_resource type="Script" uid="uid://biyrtoh8tw1le" path="res://Scripts/glow.gd" id="2_ug72l"]
+
+[node name="Glow" type="Sprite2D"]
+modulate = Color(0.34117648, 0.8666667, 0.21568628, 1)
+z_index = -2
+scale = Vector2(0.33427757, 0.3342776)
+texture = ExtResource("1_fl2q7")
+script = ExtResource("2_ug72l")
+
+[node name="CustomAnimator" parent="." instance=ExtResource("2_u8egr")]

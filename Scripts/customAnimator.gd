@@ -47,3 +47,70 @@ func shakeProcess(delta: float) -> void:
 func snapTo(target: Vector2, speed: float) -> void:
 	var tween = create_tween()
 	tween.tween_property(parent, "global_position", target, speed).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+
+func hide() -> void:
+	parent.scale = Vector2.ZERO
+
+func springIn(targetScale: Vector2, speed: float) -> void:
+	setVisible(true)
+	var tween = create_tween()
+	tween.tween_property(parent, "scale", targetScale * 1.2, speed * 0.6).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(parent, "scale", targetScale, speed * 0.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+
+func vanish(speed: float) -> void:
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(parent, "scale", Vector2.ZERO, speed).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(parent, "modulate:a", 0.0, speed).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+	setVisible(false)
+
+func fadeTo(color: Color, time: float) -> void:
+	setVisible(true)
+	var tween = create_tween()
+	tween.tween_property(parent, "modulate", color, time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+
+	
+func fadeOut(time: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(parent, "modulate:a", 0.0, time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+	setVisible(false)
+
+func setVisible(value: bool):
+	parent.visible = value
+
+func floatIn(targetPos: Vector2, duration: float, offset: Vector2 = Vector2(0, -20)) -> void:
+	setVisible(true)
+	parent.global_position = targetPos + offset
+	parent.modulate.a = 0.0
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(parent, "global_position", targetPos, duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(parent, "modulate:a", 1.0, duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	
+
+func floatOut(targetPos: Vector2, duration: float, offset: Vector2 = Vector2(0, 20)) -> void:
+	parent.modulate.a = 1.0
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(parent, "global_position", targetPos + offset, duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(parent, "modulate:a", 0.0, duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+	setVisible(false)
+
+func titterOnce(magnitude: float, speed: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(parent, "rotation_degrees", magnitude, speed).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(parent, "rotation_degrees", -magnitude, speed * 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(parent, "rotation_degrees", 0.0, speed).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+
+var scaleSineMultiplier: float = 0
+func scalePulse(value: bool, speed: float, magnitude: float, equilibrium: float) -> void:
+	if not value:
+		parent.scale = lerp(parent.scale, Vector2.ONE * equilibrium, 0.4)
+		scaleSineMultiplier = 0
+	else:
+		scaleSineMultiplier += speed
+		var s: float = equilibrium + sin(scaleSineMultiplier) * magnitude
+		parent.scale = Vector2(s, s)

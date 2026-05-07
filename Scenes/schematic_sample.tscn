@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://q232d5rn06c4"]
+[gd_scene load_steps=14 format=3 uid="uid://q232d5rn06c4"]
 
 [ext_resource type="Texture2D" uid="uid://bq4kdjpm750kl" path="res://UI/White Window.png" id="1_ei017"]
+[ext_resource type="Script" uid="uid://v2s57x6anypk" path="res://Scripts/activity.gd" id="1_hqdjy"]
 [ext_resource type="LabelSettings" uid="uid://r7d8cgv2p44v" path="res://Fonts/titleFont.tres" id="2_5unkb"]
 [ext_resource type="Texture2D" uid="uid://dypnoqcwx3hn5" path="res://Textures/Schematic Line.png" id="3_cwn0i"]
 [ext_resource type="PackedScene" uid="uid://cygm1tygqdp60" path="res://Levels/Level 1/schematicSlot.tscn" id="3_sua0s"]
@@ -16,6 +17,7 @@
 size = Vector2(72, 44)
 
 [node name="Schematic" type="Node2D"]
+script = ExtResource("1_hqdjy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
