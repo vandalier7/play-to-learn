@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv4yuh0yupvai"]
+
+[ext_resource type="Texture2D" uid="uid://tciyiqxqvh1j" path="res://UI/block.png" id="1_2bsvy"]
+[ext_resource type="Script" uid="uid://mjin4q2ofr30" path="res://Scripts/controlBlock.gd" id="2_tld2t"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="2_xv6q1"]
+[ext_resource type="Script" uid="uid://dgm2lplt1xfcw" path="res://Scripts/draggableControl.gd" id="3_lluda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tld2t"]
+size = Vector2(136, 58)
+
+[node name="ControlBlock" type="Sprite2D"]
+script = ExtResource("2_tld2t")
+
+[node name="ControlBlock" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_left = -67.8
+anchor_top = -38.869003
+anchor_right = 68.00001
+anchor_bottom = 20.0
+offset_left = -0.00034332275
+offset_top = 0.00017547607
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(114, 41)
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_2bsvy")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="." instance=ExtResource("2_xv6q1")]
+
+[node name="DraggableControl" type="Control" parent="."]
+layout_mode = 3
+anchor_left = -67.0
+anchor_top = -38.0
+anchor_right = 68.0
+anchor_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("3_lluda")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_tld2t")

@@ -9,6 +9,8 @@ func _ready() -> void:
 	SignalBus.disallowSubmission.connect(setDisabled)
 
 func setDisabled(value: bool):
+	if not visible:
+		return
 	if disabled != value:
 		customAnimator.triggerShake()
 	disabled = value

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://o8rlwfifa777"]
+
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="1_r1q1u"]
+[ext_resource type="Script" uid="uid://b5xwtyoldrf5o" path="res://Levels/playButton.gd" id="2_16q67"]
+[ext_resource type="PackedScene" uid="uid://uaclj4i3j5mv" path="res://Objects/sceneTransitioner.tscn" id="2_sbixa"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35850695
+anchor_top = 0.42438272
+anchor_right = 0.6414931
+anchor_bottom = 0.5756173
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r1q1u")
+text = "PLAY"
+script = ExtResource("2_16q67")
+metadata/_edit_use_anchors_ = true
+
+[node name="SceneTransitioner" parent="." instance=ExtResource("2_sbixa")]
+layout_mode = 1
+
+[connection signal="pressed" from="Button" to="Button" method="play"]

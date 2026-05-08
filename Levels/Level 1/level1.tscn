@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8r4204x6484o"]
+[gd_scene load_steps=26 format=3 uid="uid://c8r4204x6484o"]
 
 [ext_resource type="Texture2D" uid="uid://swp8cralcbsc" path="res://Environment/Idea.png" id="1_bn0cs"]
 [ext_resource type="PackedScene" uid="uid://dwe1j704t602o" path="res://Objects/talker.tscn" id="1_wao6c"]
@@ -9,20 +9,28 @@
 [ext_resource type="PackedScene" uid="uid://teifbalowpp0" path="res://Objects/eventSignal.tscn" id="5_veok0"]
 [ext_resource type="Script" uid="uid://b5rt5qsw5ka3e" path="res://Levels/Level 1/studyActivity.gd" id="6_cat5w"]
 [ext_resource type="PackedScene" uid="uid://dxfa2ovfwangq" path="res://Objects/infoWindow.tscn" id="7_c6mww"]
+[ext_resource type="PackedScene" uid="uid://48godyqboas6" path="res://Objects/action.tscn" id="7_j6j4h"]
 [ext_resource type="PackedScene" uid="uid://c6hfv1alypfi7" path="res://Levels/Level 1/component.tscn" id="9_1xesq"]
 [ext_resource type="Texture2D" uid="uid://cpbnphin4pary" path="res://Textures/Schema/Compressor.png" id="9_o3il5"]
 [ext_resource type="Texture2D" uid="uid://otsys1mvisfn" path="res://Textures/2D/Compressor 2D.png" id="10_o3il5"]
+[ext_resource type="PackedScene" uid="uid://0m48ap5h365c" path="res://Objects/schematicActivity.tscn" id="10_r4eha"]
+[ext_resource type="PackedScene" uid="uid://cf6k1wt8kgup4" path="res://Objects/powerMeetsAir.tscn" id="11_hlhk0"]
 [ext_resource type="PackedScene" uid="uid://d178ehinyvdj1" path="res://Objects/clickable.tscn" id="11_o3il5"]
 [ext_resource type="PackedScene" uid="uid://cmushxh1lro1m" path="res://Objects/glow.tscn" id="12_8220b"]
 [ext_resource type="Texture2D" uid="uid://brq4vp6iphqr6" path="res://Textures/Schema/Air Tank.png" id="13_wmy8f"]
 [ext_resource type="Texture2D" uid="uid://w1qrb6hkb0kj" path="res://Textures/2D/Tank 2D.png" id="14_veok0"]
 [ext_resource type="PackedScene" uid="uid://uaclj4i3j5mv" path="res://Objects/sceneTransitioner.tscn" id="17_7ktv1"]
+[ext_resource type="Texture2D" uid="uid://bbqowwfb4p0o8" path="res://Textures/Schema/Air Service.png" id="18_vl82v"]
+[ext_resource type="Texture2D" uid="uid://bjruagjwxhkfd" path="res://Textures/2D/Service 2D.png" id="19_hlhk0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8220b"]
 size = Vector2(72, 92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cat5w"]
 size = Vector2(106, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6j4h"]
+size = Vector2(82, 87)
 
 [node name="Level1" type="Control"]
 layout_mode = 3
@@ -74,10 +82,13 @@ signalName = "componentInspected"
 
 [node name="ClickAllComps" type="Node" parent="Events" node_paths=PackedStringArray("components")]
 script = ExtResource("6_cat5w")
-components = [NodePath("../../Compressor"), NodePath("../../Component2")]
+components = [NodePath("../../Compressor"), NodePath("../../Air Tank Compressor"), NodePath("../../Air Service Unit")]
+
+[node name="Action" parent="Events" instance=ExtResource("7_j6j4h")]
+signalName = "closeScene"
 
 [node name="Director" parent="." node_paths=PackedStringArray("sequence") instance=ExtResource("2_gqw0x")]
-sequence = [NodePath("../UI/Talker"), NodePath("../Events/EventSignal"), NodePath("../UI/Talker2"), NodePath("../Events/ClickAllComps"), NodePath("../UI/Talker3")]
+sequence = [NodePath("../UI/Talker"), NodePath("../Events/EventSignal"), NodePath("../UI/Talker2"), NodePath("../Events/ClickAllComps"), NodePath("../UI/Talker3"), NodePath("../UI/SchematicActivity"), NodePath("../UI/Talker4"), NodePath("../UI/PowerMeetsAir"), NodePath("../UI/Talker5"), NodePath("../Events/Action")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -93,6 +104,14 @@ lines = PackedStringArray("Nice! We got to know one already! Now, on to the rest
 visible = false
 lines = PackedStringArray("With these new parts introduced, let\'s take on a challenge!")
 
+[node name="Talker4" parent="UI" instance=ExtResource("1_wao6c")]
+visible = false
+lines = PackedStringArray("You\'ve got that right! Let\'s move on to our next activity!")
+
+[node name="Talker5" parent="UI" instance=ExtResource("1_wao6c")]
+visible = false
+lines = PackedStringArray("Great job! Those activities were nothing to you! With those tasks completed, you have unlocked Level 2!", "You are then hereby promoted to Junior Pneumatics Technician!")
+
 [node name="InfoWindow" parent="UI" instance=ExtResource("7_c6mww")]
 visible = false
 anchors_preset = -1
@@ -103,8 +122,14 @@ offset_bottom = 0.08795166
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="SchematicActivity" parent="UI" instance=ExtResource("10_r4eha")]
+visible = false
+
+[node name="PowerMeetsAir" parent="UI" instance=ExtResource("11_hlhk0")]
+visible = false
+
 [node name="Compressor" parent="." node_paths=PackedStringArray("infoWindow") instance=ExtResource("9_1xesq")]
-position = Vector2(489, 287)
+position = Vector2(585, 329)
 componentName = "Air Compressor"
 description = "Converts mechanical power (from an electric motor or engine) into pneumatic energy by compressing atmospheric air."
 textureSchematic = ExtResource("9_o3il5")
@@ -121,26 +146,47 @@ shape = SubResource("RectangleShape2D_8220b")
 
 [node name="Glow" parent="Compressor" instance=ExtResource("12_8220b")]
 
-[node name="Component2" parent="." node_paths=PackedStringArray("infoWindow") instance=ExtResource("9_1xesq")]
-position = Vector2(666, 302)
+[node name="Air Tank Compressor" parent="." node_paths=PackedStringArray("infoWindow") instance=ExtResource("9_1xesq")]
+position = Vector2(678, 343)
 componentName = "Air Tank Reservoir"
 description = "Stores compressed air to smooth out pressure pulsations and acts as a buffer to meet peak demand."
 textureSchematic = ExtResource("13_wmy8f")
 infoWindow = NodePath("../UI/InfoWindow")
 
-[node name="Sprite2D" type="Sprite2D" parent="Component2"]
+[node name="Sprite2D" type="Sprite2D" parent="Air Tank Compressor"]
 scale = Vector2(0.37, 0.37)
 texture = ExtResource("14_veok0")
 
-[node name="ClickableBehavior" parent="Component2" instance=ExtResource("11_o3il5")]
+[node name="ClickableBehavior" parent="Air Tank Compressor" instance=ExtResource("11_o3il5")]
 
-[node name="CollisionShape2D" parent="Component2/ClickableBehavior" index="0"]
+[node name="CollisionShape2D" parent="Air Tank Compressor/ClickableBehavior" index="0"]
 shape = SubResource("RectangleShape2D_cat5w")
 
-[node name="Glow" parent="Component2" instance=ExtResource("12_8220b")]
+[node name="Glow" parent="Air Tank Compressor" instance=ExtResource("12_8220b")]
+
+[node name="Air Service Unit" parent="." node_paths=PackedStringArray("infoWindow") instance=ExtResource("9_1xesq")]
+position = Vector2(777, 329)
+componentName = "Air Service Unit"
+description = "The service unit is made up of a compressed air filter with a water spearator and a pressure control valve."
+textureSchematic = ExtResource("18_vl82v")
+infoWindow = NodePath("../UI/InfoWindow")
+
+[node name="Sprite2D" type="Sprite2D" parent="Air Service Unit"]
+scale = Vector2(0.37, 0.37)
+texture = ExtResource("19_hlhk0")
+
+[node name="ClickableBehavior" parent="Air Service Unit" instance=ExtResource("11_o3il5")]
+
+[node name="CollisionShape2D" parent="Air Service Unit/ClickableBehavior" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_j6j4h")
+
+[node name="Glow" parent="Air Service Unit" instance=ExtResource("12_8220b")]
 
 [node name="SceneTransitioner" parent="." instance=ExtResource("17_7ktv1")]
+z_index = 99
 layout_mode = 1
 
 [editable path="Compressor/ClickableBehavior"]
-[editable path="Component2/ClickableBehavior"]
+[editable path="Air Tank Compressor/ClickableBehavior"]
+[editable path="Air Service Unit/ClickableBehavior"]

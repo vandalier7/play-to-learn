@@ -1,0 +1,670 @@
+[gd_scene load_steps=21 format=3 uid="uid://cf6k1wt8kgup4"]
+
+[ext_resource type="Script" uid="uid://un71yypljh8v" path="res://Levels/Level 1/powerMeetsAir.gd" id="1_sejyu"]
+[ext_resource type="Texture2D" uid="uid://sbmr1voln827" path="res://UI/power meets air.png" id="1_yknoj"]
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="2_tadns"]
+[ext_resource type="PackedScene" uid="uid://bv4yuh0yupvai" path="res://Objects/controlBlock.tscn" id="3_mjxdn"]
+[ext_resource type="Texture2D" uid="uid://w1qrb6hkb0kj" path="res://Textures/2D/Tank 2D.png" id="4_bt5eb"]
+[ext_resource type="Texture2D" uid="uid://bf4fivblqy5wi" path="res://Textures/2D/Dryer 2D.png" id="4_lts28"]
+[ext_resource type="PackedScene" uid="uid://wu7dy6jqhg1x" path="res://Objects/blockSlot.tscn" id="4_vteth"]
+[ext_resource type="Texture2D" uid="uid://dqr3hnbcvkoqh" path="res://Textures/2D/5N 2D.png" id="5_b77to"]
+[ext_resource type="PackedScene" uid="uid://c5ujrl5rj2rpk" path="res://Objects/longBlockSlot.tscn" id="5_g7s7l"]
+[ext_resource type="PackedScene" uid="uid://cg3heybjin4la" path="res://Objects/longControlBlock.tscn" id="6_nqj4w"]
+[ext_resource type="Texture2D" uid="uid://bjruagjwxhkfd" path="res://Textures/2D/Service 2D.png" id="7_hvk8l"]
+[ext_resource type="Texture2D" uid="uid://brgualsyialiu" path="res://UI/blockSlot.png" id="8_bt5eb"]
+[ext_resource type="Texture2D" uid="uid://dl2o3c3qand2q" path="res://Textures/2D/Double 2D.png" id="8_mw0yl"]
+[ext_resource type="Texture2D" uid="uid://cwhwncc45hjqe" path="res://Textures/Schema/5 valve.png" id="10_34qd0"]
+[ext_resource type="Texture2D" uid="uid://bbqowwfb4p0o8" path="res://Textures/Schema/Air Service.png" id="11_fvifj"]
+[ext_resource type="Texture2D" uid="uid://gt113um7r5l2" path="res://Textures/Schema/Double Acting.png" id="12_vu1pd"]
+[ext_resource type="Texture2D" uid="uid://brq4vp6iphqr6" path="res://Textures/Schema/Air Tank.png" id="13_sejyu"]
+[ext_resource type="Texture2D" uid="uid://c5518wkcjyuyx" path="res://Textures/Schema/Dryer.png" id="14_8uw2k"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="18_fvifj"]
+[ext_resource type="PackedScene" uid="uid://dyj5feekwuo22" path="res://Objects/submitButton.tscn" id="19_vu1pd"]
+
+[node name="PowerMeetsAir" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sejyu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -99
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08487659
+anchor_top = 0.015432099
+anchor_right = 0.9151234
+anchor_bottom = 0.845679
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yknoj")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35069445
+anchor_top = -0.0055762082
+anchor_right = 0.6493056
+anchor_bottom = 0.09429001
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_font_sizes/normal_font_size = 18
+text = "MATCHING GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Subtitle" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2992565
+anchor_top = 0.07992565
+anchor_right = 0.7007435
+anchor_bottom = 0.16492198
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_font_sizes/normal_font_size = 36
+text = "POWER MEETS AIR"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Directions" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075511105
+anchor_top = 0.2267658
+anchor_right = 0.9244889
+anchor_bottom = 0.35265434
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "Match the component name, schematic symbol, 2D model, and function by dragging the tiles to the right place."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Column 1" type="Node2D" parent="."]
+position = Vector2(-20, 0)
+
+[node name="ControlBlock1" parent="Column 1" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 257)
+objectName = "Dryer"
+slot = NodePath("../ControlBlockSlot1")
+type = 4
+
+[node name="TextureRect" type="TextureRect" parent="Column 1/ControlBlock1"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -68.0
+anchor_top = -36.0
+anchor_right = 68.0
+anchor_bottom = 9.0
+mouse_filter = 2
+texture = ExtResource("4_lts28")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlock2" parent="Column 1" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 318)
+objectName = "Valve"
+slot = NodePath("../ControlBlockSlot2")
+type = 4
+
+[node name="TextureRect" type="TextureRect" parent="Column 1/ControlBlock2"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -66.0
+anchor_top = -35.0
+anchor_right = 70.0
+anchor_bottom = 11.0
+mouse_filter = 2
+texture = ExtResource("5_b77to")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlock3" parent="Column 1" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 379)
+objectName = "Reservoir"
+slot = NodePath("../ControlBlockSlot3")
+type = 4
+
+[node name="TextureRect" type="TextureRect" parent="Column 1/ControlBlock3"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -66.0
+anchor_top = -37.0
+anchor_right = 70.0
+anchor_bottom = 10.0
+mouse_filter = 2
+texture = ExtResource("4_bt5eb")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlock4" parent="Column 1" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 440)
+objectName = "Unit"
+slot = NodePath("../ControlBlockSlot4")
+type = 4
+
+[node name="TextureRect" type="TextureRect" parent="Column 1/ControlBlock4"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -66.0
+anchor_top = -37.0
+anchor_right = 70.0
+anchor_bottom = 10.0
+mouse_filter = 2
+texture = ExtResource("7_hvk8l")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlock5" parent="Column 1" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 501)
+objectName = "Cylinder"
+slot = NodePath("../ControlBlockSlot5")
+type = 4
+
+[node name="TextureRect" type="TextureRect" parent="Column 1/ControlBlock5"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -66.0
+anchor_top = -37.0
+anchor_right = 70.0
+anchor_bottom = 11.0
+mouse_filter = 2
+texture = ExtResource("8_mw0yl")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlockSlot1" parent="Column 1" instance=ExtResource("4_vteth")]
+position = Vector2(450, 256)
+answer = "Reservoir"
+
+[node name="ControlBlockSlot2" parent="Column 1" instance=ExtResource("4_vteth")]
+position = Vector2(450, 317)
+answer = "Unit"
+
+[node name="ControlBlockSlot3" parent="Column 1" instance=ExtResource("4_vteth")]
+position = Vector2(450, 378)
+answer = "Dryer"
+
+[node name="ControlBlockSlot4" parent="Column 1" instance=ExtResource("4_vteth")]
+position = Vector2(450, 439)
+answer = "Cylinder"
+
+[node name="ControlBlockSlot5" parent="Column 1" instance=ExtResource("4_vteth")]
+position = Vector2(450, 500)
+answer = "Valve"
+
+[node name="Column 2" type="Node2D" parent="."]
+position = Vector2(130, 0)
+
+[node name="ControlBlock1" parent="Column 2" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 257)
+objectName = "Valve"
+slot = NodePath("../ControlBlockSlot1")
+type = 5
+
+[node name="TextureRect" type="TextureRect" parent="Column 2/ControlBlock1"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -62.0
+anchor_top = -37.0
+anchor_right = 68.0
+anchor_bottom = 11.0
+mouse_filter = 2
+texture = ExtResource("10_34qd0")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlock2" parent="Column 2" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 318)
+objectName = "Unit"
+slot = NodePath("../ControlBlockSlot2")
+type = 5
+
+[node name="TextureRect" type="TextureRect" parent="Column 2/ControlBlock2"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -66.0
+anchor_top = -35.0
+anchor_right = 61.0
+anchor_bottom = 10.0
+mouse_filter = 2
+texture = ExtResource("11_fvifj")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlock3" parent="Column 2" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 379)
+objectName = "Cylinder"
+slot = NodePath("../ControlBlockSlot3")
+type = 5
+
+[node name="TextureRect" type="TextureRect" parent="Column 2/ControlBlock3"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -63.0
+anchor_top = -50.0
+anchor_right = 68.0
+anchor_bottom = 23.0
+mouse_filter = 2
+texture = ExtResource("12_vu1pd")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlock4" parent="Column 2" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 440)
+objectName = "Reservoir"
+slot = NodePath("../ControlBlockSlot4")
+type = 5
+
+[node name="TextureRect" type="TextureRect" parent="Column 2/ControlBlock4"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -62.0
+anchor_top = -53.0
+anchor_right = 60.0
+anchor_bottom = 25.0
+mouse_filter = 2
+texture = ExtResource("13_sejyu")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlock5" parent="Column 2" node_paths=PackedStringArray("slot") instance=ExtResource("3_mjxdn")]
+position = Vector2(453, 501)
+objectName = "Dryer"
+slot = NodePath("../ControlBlockSlot5")
+type = 5
+
+[node name="TextureRect" type="TextureRect" parent="Column 2/ControlBlock5"]
+z_index = 2
+anchors_preset = -1
+anchor_left = -62.0
+anchor_top = -43.0
+anchor_right = 60.0
+anchor_bottom = 16.0
+mouse_filter = 2
+texture = ExtResource("14_8uw2k")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlBlockSlot1" parent="Column 2" instance=ExtResource("4_vteth")]
+position = Vector2(450, 256)
+answer = "Reservoir"
+
+[node name="ControlBlockSlot2" parent="Column 2" instance=ExtResource("4_vteth")]
+position = Vector2(450, 317)
+answer = "Unit"
+
+[node name="ControlBlockSlot3" parent="Column 2" instance=ExtResource("4_vteth")]
+position = Vector2(450, 378)
+answer = "Dryer"
+
+[node name="ControlBlockSlot4" parent="Column 2" instance=ExtResource("4_vteth")]
+position = Vector2(450, 439)
+answer = "Cylinder"
+
+[node name="ControlBlockSlot5" parent="Column 2" instance=ExtResource("4_vteth")]
+position = Vector2(450, 500)
+answer = "Valve"
+
+[node name="Column 3" type="Node2D" parent="."]
+
+[node name="ControlBlockSlot" parent="Column 3" instance=ExtResource("5_g7s7l")]
+position = Vector2(832, 256)
+answer = "Reservoir"
+
+[node name="ControlBlockSlot2" parent="Column 3" instance=ExtResource("5_g7s7l")]
+position = Vector2(832, 317)
+answer = "Unit"
+
+[node name="ControlBlockSlot3" parent="Column 3" instance=ExtResource("5_g7s7l")]
+position = Vector2(832, 378)
+answer = "Dryer"
+
+[node name="ControlBlockSlot4" parent="Column 3" instance=ExtResource("5_g7s7l")]
+position = Vector2(832, 439)
+answer = "Cylinder"
+
+[node name="ControlBlockSlot5" parent="Column 3" instance=ExtResource("5_g7s7l")]
+position = Vector2(832, 500)
+answer = "Valve"
+
+[node name="ControlBlock" parent="Column 3" node_paths=PackedStringArray("slot") instance=ExtResource("6_nqj4w")]
+position = Vector2(832, 257)
+objectName = "Reservoir"
+slot = NodePath("../ControlBlockSlot")
+type = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 3/ControlBlock"]
+anchors_preset = -1
+anchor_left = -170.00002
+anchor_top = -36.0
+anchor_right = 170.00002
+anchor_bottom = 10.0
+offset_left = 1.5258789e-05
+offset_top = -2.0
+offset_right = -1.5258789e-05
+mouse_filter = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Stores compressed air to smooth out pressure pulsations and acts as a buffer to meet peak demand."
+vertical_alignment = 1
+
+[node name="ControlBlock2" parent="Column 3" node_paths=PackedStringArray("slot") instance=ExtResource("6_nqj4w")]
+position = Vector2(832, 317)
+objectName = "Cylinder"
+slot = NodePath("../ControlBlockSlot2")
+type = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 3/ControlBlock2"]
+anchors_preset = -1
+anchor_left = -170.00002
+anchor_top = -36.0
+anchor_right = 170.00002
+anchor_bottom = 10.0
+offset_left = 1.5258789e-05
+offset_top = -2.0
+offset_right = -1.5258789e-05
+mouse_filter = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Converts pneumatic energy into linear motion in both directions (extension and retraction) using compressed air on both sides of the piston."
+vertical_alignment = 1
+
+[node name="ControlBlock3" parent="Column 3" node_paths=PackedStringArray("slot") instance=ExtResource("6_nqj4w")]
+position = Vector2(832, 377)
+objectName = "Unit"
+slot = NodePath("../ControlBlockSlot3")
+type = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 3/ControlBlock3"]
+anchors_preset = -1
+anchor_left = -170.00002
+anchor_top = -36.0
+anchor_right = 170.00002
+anchor_bottom = 10.0
+offset_left = 1.5258789e-05
+offset_top = -2.0
+offset_right = -1.5258789e-05
+mouse_filter = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Made up of three parts: a compressed air filter, a water separator and a pressure control valve."
+vertical_alignment = 1
+
+[node name="ControlBlock4" parent="Column 3" node_paths=PackedStringArray("slot") instance=ExtResource("6_nqj4w")]
+position = Vector2(832, 440)
+objectName = "Dryer"
+slot = NodePath("../ControlBlockSlot4")
+type = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 3/ControlBlock4"]
+anchors_preset = -1
+anchor_left = -170.00002
+anchor_top = -36.0
+anchor_right = 170.00002
+anchor_bottom = 10.0
+offset_left = 1.5258789e-05
+offset_top = -2.0
+offset_right = -1.5258789e-05
+mouse_filter = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Reduces the humidity of compressed air."
+vertical_alignment = 1
+
+[node name="ControlBlock5" parent="Column 3" node_paths=PackedStringArray("slot") instance=ExtResource("6_nqj4w")]
+position = Vector2(832, 503)
+objectName = "Valve"
+slot = NodePath("../ControlBlockSlot5")
+type = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 3/ControlBlock5"]
+anchors_preset = -1
+anchor_left = -170.00002
+anchor_top = -36.0
+anchor_right = 170.00002
+anchor_bottom = 10.0
+offset_left = 1.5258789e-05
+offset_top = -2.0
+offset_right = -1.5258789e-05
+mouse_filter = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Directs compressed air to either side of a double-acting cylinder, allowing it to extend and retract by switching airflow between two output ports."
+vertical_alignment = 1
+
+[node name="Column 4" type="Node2D" parent="."]
+position = Vector2(-233, 0)
+
+[node name="ControlBlockSlot1" type="Sprite2D" parent="Column 4"]
+z_index = -2
+position = Vector2(483, 256)
+
+[node name="ControlBlock" type="NinePatchRect" parent="Column 4/ControlBlockSlot1"]
+self_modulate = Color(1, 1, 1, 0.44705883)
+anchors_preset = -1
+anchor_left = -100.8
+anchor_top = -38.869003
+anchor_right = 101.00001
+anchor_bottom = 20.0
+offset_left = -0.00034332275
+offset_top = 0.00017547607
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(114, 41)
+mouse_default_cursor_shape = 2
+texture = ExtResource("8_bt5eb")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 4/ControlBlockSlot1/ControlBlock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "Air Tank Reservoir"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBlockSlot2" type="Sprite2D" parent="Column 4"]
+z_index = -2
+position = Vector2(483, 317)
+
+[node name="ControlBlock" type="NinePatchRect" parent="Column 4/ControlBlockSlot2"]
+self_modulate = Color(1, 1, 1, 0.44705883)
+anchors_preset = -1
+anchor_left = -100.8
+anchor_top = -38.869003
+anchor_right = 101.00001
+anchor_bottom = 20.0
+offset_left = -0.00034332275
+offset_top = 0.00017547607
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(114, 41)
+mouse_default_cursor_shape = 2
+texture = ExtResource("8_bt5eb")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 4/ControlBlockSlot2/ControlBlock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "Air Service Unit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBlockSlot3" type="Sprite2D" parent="Column 4"]
+z_index = -2
+position = Vector2(483, 378)
+
+[node name="ControlBlock" type="NinePatchRect" parent="Column 4/ControlBlockSlot3"]
+self_modulate = Color(1, 1, 1, 0.44705883)
+anchors_preset = -1
+anchor_left = -100.8
+anchor_top = -38.869003
+anchor_right = 101.00001
+anchor_bottom = 20.0
+offset_left = -0.00034332275
+offset_top = 0.00017547607
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(114, 41)
+mouse_default_cursor_shape = 2
+texture = ExtResource("8_bt5eb")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 4/ControlBlockSlot3/ControlBlock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "Air Dryer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBlockSlot4" type="Sprite2D" parent="Column 4"]
+z_index = -2
+position = Vector2(483, 439)
+
+[node name="ControlBlock" type="NinePatchRect" parent="Column 4/ControlBlockSlot4"]
+self_modulate = Color(1, 1, 1, 0.44705883)
+anchors_preset = -1
+anchor_left = -100.8
+anchor_top = -38.869003
+anchor_right = 101.00001
+anchor_bottom = 20.0
+offset_left = -0.00034332275
+offset_top = 0.00017547607
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(114, 41)
+mouse_default_cursor_shape = 2
+texture = ExtResource("8_bt5eb")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 4/ControlBlockSlot4/ControlBlock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "Double-Acting Cylinder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBlockSlot5" type="Sprite2D" parent="Column 4"]
+z_index = -2
+position = Vector2(483, 500)
+
+[node name="ControlBlock" type="NinePatchRect" parent="Column 4/ControlBlockSlot5"]
+self_modulate = Color(1, 1, 1, 0.44705883)
+anchors_preset = -1
+anchor_left = -100.8
+anchor_top = -38.869003
+anchor_right = 101.00001
+anchor_bottom = 20.0
+offset_left = -0.00034332275
+offset_top = 0.00017547607
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(114, 41)
+mouse_default_cursor_shape = 2
+texture = ExtResource("8_bt5eb")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Column 4/ControlBlockSlot5/ControlBlock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tadns")
+theme_override_colors/default_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "5/2 Way Valve"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CustomAnimator" parent="." instance=ExtResource("18_fvifj")]
+
+[node name="Button" parent="." instance=ExtResource("19_vu1pd")]
+z_index = -2
+layout_mode = 1
+anchor_top = 0.8626543
+anchor_bottom = 0.9814815
+mouse_default_cursor_shape = 2

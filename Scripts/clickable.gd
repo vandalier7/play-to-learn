@@ -4,6 +4,7 @@ extends Area2D
 class_name ClickableComponent
 
 signal clicked
+var clickable: bool = true
 
 func _ready() -> void:
 	input_event.connect(_onInputEvent)
@@ -11,13 +12,17 @@ func _ready() -> void:
 	mouse_exited.connect(_onMouseExited)
 
 func _onInputEvent(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if not clickable: return
 	if event is InputEventMouseButton and event.pressed:
 		clicked.emit()
+	get_viewport().set_input_as_handled()
 
 func _onMouseEntered() -> void:
+	if not clickable: return
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 func _onMouseExited() -> void:
+	if not clickable: return
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 ## Called by the parent of this Object. The Callable is then called whenever this object is clicked.

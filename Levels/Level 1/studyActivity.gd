@@ -10,3 +10,6 @@ func checkCompletion():
 		if not comp.inspected:
 			return
 	finish()
+	for comp: Component in components:
+		comp.clickableBehavior.clickable = false
+	

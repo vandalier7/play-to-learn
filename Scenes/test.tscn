@@ -1,34 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8pw3hd6a3reb"]
+[gd_scene load_steps=2 format=3 uid="uid://c8pw3hd6a3reb"]
 
-[ext_resource type="PackedScene" uid="uid://cojf5juvjn25m" path="res://Objects/slot.tscn" id="1_lc1oi"]
-[ext_resource type="PackedScene" uid="uid://cupoij2jqjmje" path="res://Objects/slotObject.tscn" id="2_8od7v"]
+[ext_resource type="PackedScene" uid="uid://bvlkeigl4gake" path="res://Objects/tutor.tscn" id="1_lc1oi"]
 
-[node name="Test" type="Node2D"]
-
-[node name="Slot" parent="." instance=ExtResource("1_lc1oi")]
-position = Vector2(446, 271)
-
-[node name="Slot2" parent="." instance=ExtResource("1_lc1oi")]
-position = Vector2(641, 269)
-
-[node name="Slot3" parent="." instance=ExtResource("1_lc1oi")]
-position = Vector2(852, 267)
-
-[node name="SlotObject" parent="." instance=ExtResource("2_8od7v")]
-position = Vector2(452, 438)
-
-[node name="SlotObject2" parent="." instance=ExtResource("2_8od7v")]
-z_index = 1
-position = Vector2(707, 438)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="Test" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+
+[node name="Tutor" parent="." instance=ExtResource("1_lc1oi")]
+layout_mode = 1

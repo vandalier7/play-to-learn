@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://wu7dy6jqhg1x"]
+
+[ext_resource type="Texture2D" uid="uid://brgualsyialiu" path="res://UI/blockSlot.png" id="1_faosh"]
+[ext_resource type="Script" uid="uid://2t1ie56n64v3" path="res://Scripts/staticSlot.gd" id="1_tny7p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tny7p"]
+size = Vector2(134, 57)
+
+[node name="ControlBlockSlot" type="Sprite2D"]
+modulate = Color(0.24313726, 0.24313726, 0.24313726, 0.5568628)
+z_index = -2
+script = ExtResource("1_tny7p")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_tny7p")
+
+[node name="ControlBlock" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_left = -67.8
+anchor_top = -38.869003
+anchor_right = 68.00001
+anchor_bottom = 20.0
+offset_left = -0.00034332275
+offset_top = 0.00017547607
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(114, 41)
+mouse_default_cursor_shape = 2
+texture = ExtResource("1_faosh")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+metadata/_edit_use_anchors_ = true

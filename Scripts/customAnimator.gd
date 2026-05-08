@@ -19,9 +19,15 @@ func _ready() -> void:
 	assert(is_instance_valid(get_parent()))
 	assert(is_instance_of(get_parent(), Node2D) or is_instance_of(get_parent(), Control))
 	parent = get_parent()
+	targetScale = parent.scale
 
 func _process(delta: float) -> void:
 	shakeProcess(delta)
+	parent.scale = lerp(parent.scale, targetScale, 0.3)
+
+var targetScale: Vector2
+func setScale(scale: float):
+	targetScale = Vector2(scale, scale)
 
 var sineMultiplier: float = 0
 func titter(value: bool):
@@ -56,7 +62,7 @@ func springIn(targetScale: Vector2, speed: float) -> void:
 	var tween = create_tween()
 	tween.tween_property(parent, "scale", targetScale * 1.2, speed * 0.6).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(parent, "scale", targetScale, speed * 0.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
-
+	
 func vanish(speed: float) -> void:
 	var tween = create_tween()
 	tween.set_parallel(true)

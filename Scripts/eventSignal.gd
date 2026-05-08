@@ -1,3 +1,4 @@
+## Stalls the Director's Sequence until a specific signal from the SignalBus is fired.
 extends Node
 
 class_name EventSignal
