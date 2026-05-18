@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://cncb8lume43yb"]
+
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="1_kfirs"]
+[ext_resource type="Texture2D" uid="uid://c512kngft73on" path="res://UI/divider.png" id="2_1cmck"]
+
+[node name="Pages" type="Control"]
+layout_mode = 3
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlueText" type="RichTextLabel" parent="Page"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kfirs")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Page"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15413035
+anchor_right = 1.0
+anchor_bottom = 0.84586966
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1cmck")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,1740 @@
+[gd_scene load_steps=62 format=3 uid="uid://dpn8vwer5rji0"]
+
+[ext_resource type="Texture2D" uid="uid://swp8cralcbsc" path="res://Environment/Idea.png" id="1_g6tpj"]
+[ext_resource type="Texture2D" uid="uid://b1op4y18g35ox" path="res://Environment/TABLE.png" id="2_jxqon"]
+[ext_resource type="Texture2D" uid="uid://bv2q783j7vwud" path="res://Environment/Sheets/fan.png" id="3_h7tct"]
+[ext_resource type="Script" uid="uid://cqkx7b6343k2t" path="res://Scripts/looper.gd" id="4_idgy7"]
+[ext_resource type="Script" uid="uid://daior2o2534ki" path="res://Scripts/darken.gd" id="5_x017n"]
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="6_spdwq"]
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="7_5qkcg"]
+[ext_resource type="PackedScene" uid="uid://teifbalowpp0" path="res://Objects/eventSignal.tscn" id="8_my1d5"]
+[ext_resource type="Script" uid="uid://b5rt5qsw5ka3e" path="res://Levels/Level 1/studyActivity.gd" id="9_d0r23"]
+[ext_resource type="PackedScene" uid="uid://48godyqboas6" path="res://Objects/action.tscn" id="10_xolla"]
+[ext_resource type="Script" uid="uid://d1l13eq8a861p" path="res://Scripts/sceneSwitchAction.gd" id="11_umfo3"]
+[ext_resource type="Script" uid="uid://bpop8j8n0d8he" path="res://Scripts/componentSignal.gd" id="12_suk7r"]
+[ext_resource type="PackedScene" uid="uid://fc6lg40248kl" path="res://Objects/director.tscn" id="13_1jr1f"]
+[ext_resource type="PackedScene" uid="uid://bvlkeigl4gake" path="res://Objects/tutor.tscn" id="14_sintx"]
+[ext_resource type="PackedScene" uid="uid://cncb8lume43yb" path="res://Objects/pages.tscn" id="15_8leds"]
+[ext_resource type="Texture2D" uid="uid://tmr0hfcwxvjd" path="res://Levels/Level 2/page1.png" id="16_j4kyn"]
+[ext_resource type="Texture2D" uid="uid://c512kngft73on" path="res://UI/divider.png" id="17_p5g8t"]
+[ext_resource type="PackedScene" uid="uid://cpqqql3f2q8se" path="res://Objects/pointer.tscn" id="18_2emff"]
+[ext_resource type="Texture2D" uid="uid://sotrnnny5oi2" path="res://Levels/Level 2/page2.png" id="19_1i87d"]
+[ext_resource type="Texture2D" uid="uid://b6rsh8mao1c26" path="res://Levels/Level 2/page3.png" id="20_4c2ix"]
+[ext_resource type="Texture2D" uid="uid://daj86hhu63wkt" path="res://Levels/Level 2/page4.png" id="21_ah06x"]
+[ext_resource type="Texture2D" uid="uid://ky5ii3vwnlxp" path="res://UI/componentTitle.png" id="22_m7qx8"]
+[ext_resource type="Texture2D" uid="uid://c7ty5pgoha2ff" path="res://UI/thinLightPanel.png" id="23_d7ys1"]
+[ext_resource type="Texture2D" uid="uid://cpbnphin4pary" path="res://Textures/Schema/Compressor.png" id="24_67b8j"]
+[ext_resource type="Texture2D" uid="uid://otsys1mvisfn" path="res://Textures/2D/Compressor 2D.png" id="25_ekxjy"]
+[ext_resource type="Script" uid="uid://h43hbnyb3dgy" path="res://Scripts/tutorNoPanel.gd" id="26_s7o14"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="27_m7vle"]
+[ext_resource type="Texture2D" uid="uid://b4j1kexb4maif" path="res://UI/small dialogue.png" id="28_cbn3v"]
+[ext_resource type="PackedScene" uid="uid://r0krljwkcvr5" path="res://Objects/dialogueAnimator.tscn" id="29_507i5"]
+[ext_resource type="Texture2D" uid="uid://22gt3qlt76r7" path="res://UI/next.png" id="30_twq4h"]
+[ext_resource type="Texture2D" uid="uid://880e8kc7141b" path="res://UI/NoBorderWindow.png" id="31_nyipw"]
+[ext_resource type="PackedScene" uid="uid://bu7qkisksi5b7" path="res://Objects/tutorNoPanel.tscn" id="32_n2hod"]
+[ext_resource type="PackedScene" uid="uid://uaclj4i3j5mv" path="res://Objects/sceneTransitioner.tscn" id="33_c6e08"]
+[ext_resource type="PackedScene" uid="uid://c3mrwkg7bgj68" path="res://Objects/objectSlot.tscn" id="34_3bprs"]
+[ext_resource type="PackedScene" uid="uid://cqfrl0yd4q6bq" path="res://Objects/player.tscn" id="35_aamtc"]
+[ext_resource type="Script" uid="uid://bh20v0m0j6plu" path="res://Scripts/playerInventory.gd" id="36_wmp1r"]
+[ext_resource type="Texture2D" uid="uid://df02ri27flb24" path="res://UI/Deck.png" id="37_8c4dn"]
+[ext_resource type="PackedScene" uid="uid://b65qimx2c6t6h" path="res://Objects/directionalButton.tscn" id="38_24aj4"]
+[ext_resource type="PackedScene" uid="uid://dgrsgh8xjoclg" path="res://Objects/inventoryItem.tscn" id="39_sxk1p"]
+[ext_resource type="PackedScene" uid="uid://d0y1ustpeiwo7" path="res://_Simulation Objects/Compressor.tscn" id="40_cqasr"]
+[ext_resource type="Texture2D" uid="uid://w1qrb6hkb0kj" path="res://Textures/2D/Tank 2D.png" id="41_kiwlt"]
+[ext_resource type="PackedScene" uid="uid://cg3rw1a16eajm" path="res://_Simulation Objects/Air Tank Reservoir.tscn" id="42_kkp34"]
+[ext_resource type="Texture2D" uid="uid://bf4fivblqy5wi" path="res://Textures/2D/Dryer 2D.png" id="43_gm2bq"]
+[ext_resource type="PackedScene" uid="uid://dpw46ggspkpo7" path="res://_Simulation Objects/Air Dryer.tscn" id="44_vfqv2"]
+[ext_resource type="Texture2D" uid="uid://bjruagjwxhkfd" path="res://Textures/2D/Service 2D.png" id="45_hvnwd"]
+[ext_resource type="PackedScene" uid="uid://ytwmco41fn87" path="res://_Simulation Objects/Air Service Unit.tscn" id="46_vt8q2"]
+[ext_resource type="Texture2D" uid="uid://cabvsr23jki12" path="res://Textures/2D/3N Selector Frame.png" id="47_652lx"]
+[ext_resource type="PackedScene" uid="uid://btbmms5j3k11x" path="res://_Simulation Objects/3N Switch.tscn" id="48_cl1xa"]
+[ext_resource type="Texture2D" uid="uid://brhdm73le1r2d" path="res://Textures/2D/Single 2D.png" id="49_jn732"]
+[ext_resource type="PackedScene" uid="uid://b86ahdavronwm" path="res://_Simulation Objects/Single Acting Piston.tscn" id="50_gojdk"]
+[ext_resource type="Texture2D" uid="uid://bgata1xvbgbip" path="res://Textures/2D/3N Button Frame.png" id="51_68uev"]
+[ext_resource type="PackedScene" uid="uid://c2i0dt64b8l4g" path="res://_Simulation Objects/3nButton.tscn" id="52_g78ef"]
+[ext_resource type="Texture2D" uid="uid://brgualsyialiu" path="res://UI/blockSlot.png" id="53_edc4h"]
+[ext_resource type="Script" uid="uid://c46wxwi4w86rw" path="res://Scripts/placeButton.gd" id="54_ci1af"]
+[ext_resource type="Script" uid="uid://b4bl55xg4ldmh" path="res://Levels/Level 3/slotManager.gd" id="55_8fdjf"]
+[ext_resource type="PackedScene" uid="uid://d10kci84gxe8m" path="res://Objects/warningNotif.tscn" id="56_s0wt1"]
+[ext_resource type="Script" uid="uid://cbinb65rpygca" path="res://Scripts/simulator.gd" id="57_npffi"]
+[ext_resource type="PackedScene" uid="uid://dl0p6b35rug5t" path="res://Objects/simulationButton.tscn" id="58_swgwk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_axaaf"]
+texture = ExtResource("37_8c4dn")
+expand_margin_left = 60.0
+expand_margin_top = 5.0
+expand_margin_right = 60.0
+expand_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="InputEventKey" id="InputEventKey_55gk5"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_bh3s2"]
+events = [SubResource("InputEventKey_55gk5")]
+
+[node name="Level3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Environment" type="TextureRect" parent="."]
+z_index = -999
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00044444535
+anchor_top = -0.015876547
+anchor_right = 1.0004444
+anchor_bottom = 1.0112469
+offset_left = 0.51200104
+offset_top = 0.288002
+offset_right = -0.5119629
+offset_bottom = -0.2880249
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_g6tpj")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Table" type="Sprite2D" parent="Environment"]
+visible = false
+position = Vector2(585, 389)
+scale = Vector2(0.6575, 0.6575)
+texture = ExtResource("2_jxqon")
+
+[node name="Fan" type="Sprite2D" parent="Environment"]
+position = Vector2(1018.0814, 90.875)
+scale = Vector2(0.4610092, 0.46100917)
+texture = ExtResource("3_h7tct")
+hframes = 6
+frame = 5
+script = ExtResource("4_idgy7")
+frameInterval = 0.12
+
+[node name="Darken" type="ColorRect" parent="Environment"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.4862745)
+script = ExtResource("5_x017n")
+
+[node name="CustomAnimator" type="Node" parent="Environment/Darken"]
+script = ExtResource("6_spdwq")
+metadata/_custom_type_script = "uid://ckwy4c8mrooou"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Environment/Darken"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0069444445
+anchor_top = 0.8255639
+anchor_right = 0.24131945
+anchor_bottom = 0.97593987
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("7_5qkcg")
+theme_override_font_sizes/normal_font_size = 23
+text = "Cancel: [Backspace]"
+horizontal_alignment = 3
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Events" type="Node" parent="."]
+
+[node name="OnCompressorSelected" parent="Events" instance=ExtResource("8_my1d5")]
+signalName = "compressorSelected"
+
+[node name="OnWireConnect" parent="Events" instance=ExtResource("8_my1d5")]
+signalName = "wireConnected"
+
+[node name="OnSimulateStarted" parent="Events" instance=ExtResource("8_my1d5")]
+signalName = "playSimulation"
+args = 1
+
+[node name="DirectorStaller" parent="Events" instance=ExtResource("8_my1d5")]
+signalName = "directorStaller"
+
+[node name="ClickAllComps" type="Node" parent="Events" node_paths=PackedStringArray("components")]
+script = ExtResource("9_d0r23")
+components = [null, null, null]
+
+[node name="AllowPlayerToWalk" parent="Events" instance=ExtResource("10_xolla")]
+signalName = "allowPlayerToWalk"
+
+[node name="DisallowPlayerWalk" parent="Events" instance=ExtResource("10_xolla")]
+signalName = "disallowPlayerToWalk"
+
+[node name="SetPhaseToPlacement" parent="Events" instance=ExtResource("10_xolla")]
+signalName = "setPhaseToPlacement"
+
+[node name="SetPhaseToWiring" parent="Events" instance=ExtResource("10_xolla")]
+signalName = "setPhaseToWiring"
+
+[node name="SetPhaseToSim" parent="Events" instance=ExtResource("10_xolla")]
+signalName = "setPhaseToSimulation"
+
+[node name="Ender" parent="Events" instance=ExtResource("10_xolla")]
+signalName = "closeScene"
+
+[node name="SceneSwitch" type="Node" parent="Events"]
+script = ExtResource("11_umfo3")
+
+[node name="PistonActuates" type="Node" parent="Events"]
+script = ExtResource("12_suk7r")
+componentName = "Single Acting Cylinder"
+metadata/_custom_type_script = "uid://bpop8j8n0d8he"
+
+[node name="Director" parent="." node_paths=PackedStringArray("sequence") instance=ExtResource("13_1jr1f")]
+sequence = [NodePath("../Events/DisallowPlayerWalk"), NodePath("../UI/Intro"), NodePath("../Events/SetPhaseToPlacement"), NodePath("../Events/OnCompressorSelected"), NodePath("../UI/TeachMovement"), NodePath("../Events/AllowPlayerToWalk"), NodePath("../ObjectSlot4/EventSignal"), NodePath("../UI/TeachPos1"), NodePath("../SlotsManager"), NodePath("../UI/TeachPos2"), NodePath("../SlotsManager2"), NodePath("../Events/SetPhaseToWiring"), NodePath("../UI/ConnectionIntro"), NodePath("../Events/OnWireConnect"), NodePath("../UI/ConnectionAll"), NodePath("../Simulator"), NodePath("../UI/TeachPlay"), NodePath("../Events/OnSimulateStarted"), NodePath("../UI/TeachSimulate"), NodePath("../Events/PistonActuates"), NodePath("../UI/Outro")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Tutor" parent="UI" instance=ExtResource("14_sintx")]
+visible = false
+mouse_filter = 2
+lines = PackedStringArray("Looks like we got to analyze two diagrams here, Engineer! Let\'s try to simulate it.", "Let\'s take a look at this valve.", "That\'s how it works for the first connection. Let\'s check the second one.", "Now, we see two circuits are connected. But what are these components on the elctrical side?", "Let us inspect one by one the components in the electrical schematic.", "")
+
+[node name="Pages" parent="UI/Tutor" instance=ExtResource("15_8leds")]
+layout_mode = 1
+
+[node name="Page" parent="UI/Tutor/Pages" index="0"]
+visible = false
+
+[node name="BlueText" parent="UI/Tutor/Pages/Page" index="0"]
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+horizontal_alignment = 1
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" parent="UI/Tutor/Pages/Page" index="2"]
+anchor_top = 0.0
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038614906
+anchor_top = -0.14317416
+anchor_right = 0.9771692
+anchor_bottom = 1.0294904
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_j4kyn")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/Tutor/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueText" type="RichTextLabel" parent="UI/Tutor/Pages/Page2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page2"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_p5g8t")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Pointer" parent="UI/Tutor/Pages/Page2" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0060708555
+anchor_top = -0.10681246
+anchor_right = 1.006071
+anchor_bottom = 0.8931875
+offset_left = 708.8035
+offset_top = 238.0
+offset_right = 708.80347
+offset_bottom = 238.0
+angle = 45.0
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041043248
+anchor_top = -0.14317416
+anchor_right = 0.97959757
+anchor_bottom = 1.0294904
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_j4kyn")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Page3" type="Control" parent="UI/Tutor/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueText" type="RichTextLabel" parent="UI/Tutor/Pages/Page3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page3"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_p5g8t")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Pointer" parent="UI/Tutor/Pages/Page3" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.048566844
+anchor_top = -0.10453986
+anchor_right = 0.95143324
+anchor_bottom = 0.8954601
+offset_left = 708.8035
+offset_top = 238.0
+offset_right = 708.80347
+offset_bottom = 238.0
+angle = 45.0
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036186565
+anchor_top = -0.1681728
+anchor_right = 0.97474086
+anchor_bottom = 1.0044917
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_1i87d")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Page4" type="Control" parent="UI/Tutor/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueText" type="RichTextLabel" parent="UI/Tutor/Pages/Page4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page4"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_p5g8t")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Clipper" type="Control" parent="UI/Tutor/Pages/Page4"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.803513
+offset_right = -515.00006
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page4/Clipper"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036186565
+anchor_top = -0.17044541
+anchor_right = 0.036186565
+anchor_bottom = -0.17
+offset_right = 687.0
+offset_bottom = 515.804
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_4c2ix")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Clipper2" type="Control" parent="UI/Tutor/Pages/Page4"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 346.80353
+offset_right = 5.196411
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page4/Clipper2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036186565
+anchor_top = -0.17044541
+anchor_right = 0.036186565
+anchor_bottom = -0.17
+offset_left = -348.44193
+offset_top = -37.0
+offset_right = 437.08127
+offset_bottom = 552.804
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_4c2ix")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page5" type="Control" parent="UI/Tutor/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueText" type="RichTextLabel" parent="UI/Tutor/Pages/Page5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page5"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_p5g8t")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Pointer" parent="UI/Tutor/Pages/Page5" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.57308877
+anchor_top = -0.022726055
+anchor_right = 0.4269113
+anchor_bottom = 0.97727394
+offset_left = 708.8035
+offset_top = 238.0
+offset_right = 708.80347
+offset_bottom = 238.0
+angle = 45.0
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041043248
+anchor_top = -0.18635365
+anchor_right = 0.9650275
+anchor_bottom = 1.0635794
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_ah06x")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Page6" type="Control" parent="UI/Tutor/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -132.19641
+offset_top = -80.97644
+offset_right = 132.19647
+offset_bottom = 80.97644
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3069853
+anchor_top = 0.18632692
+anchor_right = 0.68001485
+anchor_bottom = 0.27580717
+offset_left = -6.0000763
+offset_top = -0.18798256
+offset_right = 0.14379883
+offset_bottom = -0.052978516
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_m7qx8")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel1" type="NinePatchRect" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5321181
+anchor_top = 0.45524693
+anchor_right = 0.7604167
+anchor_bottom = 0.7577161
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_d7ys1")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page6/Panel1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07984791
+anchor_top = 0.24489792
+anchor_right = 0.92015207
+anchor_bottom = 0.8367346
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_67b8j")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="NinePatchRect" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23958333
+anchor_top = 0.45524693
+anchor_right = 0.46788195
+anchor_bottom = 0.7577161
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_d7ys1")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page6/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07984791
+anchor_top = 0.24489792
+anchor_right = 0.92015207
+anchor_bottom = 0.8367346
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_ekxjy")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="RichTextLabel" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35069445
+anchor_top = 0.20216049
+anchor_right = 0.6493056
+anchor_bottom = 0.2665556
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_font_sizes/normal_font_size = 26
+text = "Air Compressor"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="RichTextLabel" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23177083
+anchor_top = 0.28703704
+anchor_right = 0.7682292
+anchor_bottom = 0.45019758
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Converts mechanical power (from an electric motor or engine) into pneumatic energy by compressing atmospheric air.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="2D" type="RichTextLabel" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2482639
+anchor_top = 0.46296296
+anchor_right = 0.4609375
+anchor_bottom = 0.7356914
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "2D"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Symbol" type="RichTextLabel" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5399306
+anchor_top = 0.46296296
+anchor_right = 0.7526042
+anchor_bottom = 0.7356914
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "SCHEMATIC SYMBOL"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Intro" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 648)
+mouse_filter = 2
+script = ExtResource("26_s7o14")
+lines = PackedStringArray("Welcome back, Engineer! You are now able to try and build your own pneumatic system!", "This right here is your Inventory. This is where you can get components in building.", "Let\'s start by equipping a Compressor.")
+
+[node name="Backdrop" type="ColorRect" parent="UI/Intro"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.24313726)
+
+[node name="CustomAnimator" parent="UI/Intro/Backdrop" instance=ExtResource("27_m7vle")]
+lerpAlpha = false
+
+[node name="CustomAnimator" parent="UI/Intro" instance=ExtResource("27_m7vle")]
+
+[node name="TextureRect" type="TextureRect" parent="UI/Intro"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 414.0
+offset_right = -536.8008
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-1, 208)
+mouse_filter = 2
+texture = ExtResource("28_cbn3v")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Dialogue" type="RichTextLabel" parent="UI/Intro/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19230796
+anchor_top = 0.06545454
+anchor_right = 0.47817114
+anchor_bottom = 0.7090909
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("7_5qkcg")
+theme_override_colors/default_color = Color(0.3118496, 0.31184962, 0.3118496, 1)
+theme_override_font_sizes/normal_font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueAnimator" parent="UI/Intro/TextureRect/Dialogue" instance=ExtResource("29_507i5")]
+
+[node name="NextButton" type="TextureButton" parent="UI/Intro/TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.36387783
+anchor_top = 0.7628866
+anchor_right = 0.5191009
+anchor_bottom = 0.8901754
+offset_right = 0.117004395
+offset_bottom = -0.041015625
+pivot_offset = Vector2(56, 17)
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("30_twq4h")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="UI/Intro/TextureRect/NextButton" instance=ExtResource("27_m7vle")]
+shakeTime = 0.3
+shakeMagnitude = 5.0
+shakeSpeed = 8.0
+
+[node name="CustomAnimator" parent="UI/Intro/TextureRect" instance=ExtResource("27_m7vle")]
+
+[node name="NextButton2" type="TextureButton" parent="UI/Intro/TextureRect"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31486008
+anchor_top = 0.7372776
+anchor_right = 0.47086006
+anchor_bottom = 0.890295
+offset_left = 0.26301575
+offset_top = -0.09101868
+offset_right = -0.06832886
+offset_bottom = -0.071640015
+pivot_offset = Vector2(56, 17)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("30_twq4h")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="UI/Intro/TextureRect/NextButton2" instance=ExtResource("27_m7vle")]
+lerpAlpha = false
+shakeTime = 0.3
+shakeMagnitude = 5.0
+shakeSpeed = 8.0
+
+[node name="TutorialScreen" type="TextureRect" parent="UI/Intro"]
+self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 0)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1064815
+anchor_top = 0.106481485
+anchor_right = 0.89351845
+anchor_bottom = 0.8935185
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("31_nyipw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="UI/Intro/TutorialScreen" instance=ExtResource("27_m7vle")]
+
+[node name="Pages" type="Control" parent="UI/Intro"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page" type="Control" parent="UI/Intro/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Page2" type="Control" parent="UI/Intro/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/Intro/Pages/Page2" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39217728
+anchor_top = 0.39316076
+anchor_right = 1.3921773
+anchor_bottom = 1.3931608
+offset_left = 259.80353
+offset_top = 271.0
+offset_right = 259.80347
+offset_bottom = 271.0
+angle = -45.0
+
+[node name="Page3" type="Control" parent="UI/Intro/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/Intro/Pages/Page3" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05342353
+anchor_top = 0.42724985
+anchor_right = 1.0534236
+anchor_bottom = 1.4272499
+offset_left = 259.80353
+offset_top = 271.0
+offset_right = 259.80347
+offset_bottom = 271.0
+angle = -45.0
+
+[node name="TeachMovement" parent="UI" instance=ExtResource("32_n2hod")]
+visible = false
+lines = PackedStringArray("Now, let\'s try placing it down over here.", "To go to that location, RIGHT CLICK on the area.")
+
+[node name="Pages" type="Control" parent="UI/TeachMovement"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/TeachMovement/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pointer" parent="UI/TeachMovement/Pages/Page2" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.07308883
+anchor_top = 0.4999732
+anchor_right = 0.9269112
+anchor_bottom = 1.4999732
+angle = -45.0
+
+[node name="Page3" type="Control" parent="UI/TeachMovement/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TeachPos1" parent="UI" instance=ExtResource("32_n2hod")]
+visible = false
+lines = PackedStringArray("Nice. Let\'s start placing the rest of the components.", "Place an Air Tank Reservoir here.", "Then, an Air Dryer here.", "An Air Service Unit here, and we\'re all set for our Supply Units.")
+
+[node name="TextureRect" parent="UI/TeachPos1" index="2"]
+offset_top = 30.0
+offset_bottom = -409.0
+
+[node name="Pages" type="Control" parent="UI/TeachPos1"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/TeachPos1/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Page5" type="Control" parent="UI/TeachPos1/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/TeachPos1/Pages/Page5" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.071397536
+anchor_top = 0.495428
+anchor_right = 1.0713974
+anchor_bottom = 1.495428
+angle = -45.0
+
+[node name="Page3" type="Control" parent="UI/TeachPos1/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/TeachPos1/Pages/Page3" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.07915971
+anchor_top = 0.7772311
+anchor_right = 0.9208402
+anchor_bottom = 1.7772311
+angle = -45.0
+
+[node name="Page4" type="Control" parent="UI/TeachPos1/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/TeachPos1/Pages/Page4" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06654082
+anchor_top = 0.7772311
+anchor_right = 1.0665407
+anchor_bottom = 1.7772311
+angle = -45.0
+
+[node name="TeachPos2" parent="UI" instance=ExtResource("32_n2hod")]
+visible = false
+lines = PackedStringArray("Now that our Supply Units are in position, let\'s place down the rest.", "Place a 3N Switch here.", "Then, a 3N Button right below.", "Finally, place down a Single Acting Piston here.")
+
+[node name="TextureRect" parent="UI/TeachPos2" index="2"]
+offset_top = 30.0
+offset_bottom = -409.0
+
+[node name="Pages" type="Control" parent="UI/TeachPos2"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/TeachPos2/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Page5" type="Control" parent="UI/TeachPos2/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/TeachPos2/Pages/Page5" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7938294
+anchor_top = 0.36134425
+anchor_right = 1.7938291
+anchor_bottom = 1.3613443
+angle = -45.0
+
+[node name="Page3" type="Control" parent="UI/TeachPos2/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/TeachPos2/Pages/Page3" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79382944
+anchor_top = 0.5999679
+anchor_right = 1.7938293
+anchor_bottom = 1.5999678
+angle = -45.0
+
+[node name="Page4" type="Control" parent="UI/TeachPos2/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/TeachPos2/Pages/Page4" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9783834
+anchor_top = 0.47497457
+anchor_right = 1.9783834
+anchor_bottom = 1.4749745
+angle = -45.0
+
+[node name="ConnectionIntro" parent="UI" instance=ExtResource("32_n2hod")]
+lines = PackedStringArray("Everything is now in place! It\'s time to connect them all together!", "See these white nodes with a green or red tip? These are outlets and inlets.", "To connect an outlet to an inlet, first click on an outlet (green port) to enter Draw Mode.", "Draw a Pneumatic Line until it aligns to the target. Once it aligns, click on the target inlet.")
+
+[node name="TextureRect" parent="UI/ConnectionIntro" index="2"]
+offset_top = 30.0
+offset_bottom = -409.0
+
+[node name="Pages" type="Control" parent="UI/ConnectionIntro"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/ConnectionIntro/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Page5" type="Control" parent="UI/ConnectionIntro/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/ConnectionIntro/Pages/Page5" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.062161293
+anchor_top = 0.5204267
+anchor_right = 0.93783844
+anchor_bottom = 1.5204266
+angle = -135.0
+
+[node name="Pointer2" parent="UI/ConnectionIntro/Pages/Page5" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00023856002
+anchor_top = 0.53860754
+anchor_right = 0.9997612
+anchor_bottom = 1.5386075
+angle = -45.0
+
+[node name="Page6" type="Control" parent="UI/ConnectionIntro/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer" parent="UI/ConnectionIntro/Pages/Page6" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.062161293
+anchor_top = 0.5204267
+anchor_right = 0.93783844
+anchor_bottom = 1.5204266
+angle = -135.0
+
+[node name="Page7" type="Control" parent="UI/ConnectionIntro/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer2" parent="UI/ConnectionIntro/Pages/Page7" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00023856002
+anchor_top = 0.53860754
+anchor_right = 0.9997612
+anchor_bottom = 1.5386075
+angle = -45.0
+
+[node name="ConnectionAll" parent="UI" instance=ExtResource("32_n2hod")]
+lines = PackedStringArray("Wasn\'t that neat? Now you just have to do that for the rest of the components.", "Make sure to connect them this order. Compressor, Reservoir, Dryer, Service Unit;", "Then a 3N Switch, a 3N Button, ending with the Single Acting Cylinder.")
+
+[node name="Page5" type="Control" parent="UI/ConnectionAll/Backdrop" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 164.19649
+offset_top = 97.0
+offset_right = 164.19653
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" parent="UI/ConnectionAll" index="2"]
+offset_top = 30.0
+offset_bottom = -409.0
+
+[node name="Pages" type="Control" parent="UI/ConnectionAll"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/ConnectionAll/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Page5" type="Control" parent="UI/ConnectionAll/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Page6" type="Control" parent="UI/ConnectionAll/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TeachPlay" parent="UI" instance=ExtResource("32_n2hod")]
+lines = PackedStringArray("Great job connecting all seven components in order!", "To start the simulation, press on this play Button.")
+
+[node name="TextureRect" parent="UI/TeachPlay" index="2"]
+offset_top = 30.0
+offset_bottom = -409.0
+
+[node name="Pages" type="Control" parent="UI/TeachPlay"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page3" type="Control" parent="UI/TeachPlay/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Page2" type="Control" parent="UI/TeachPlay/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer2" parent="UI/TeachPlay/Pages/Page2" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9407441
+anchor_top = 1.118122
+anchor_right = 1.9407438
+anchor_bottom = 2.1181219
+angle = -45.0
+
+[node name="TeachSimulate" parent="UI" instance=ExtResource("32_n2hod")]
+lines = PackedStringArray("Some components have interactive parts. In this case, we have the 3N Switch and Button.", "Try pressing on them and see what they do.")
+
+[node name="TextureRect" parent="UI/TeachSimulate" index="2"]
+offset_top = 30.0
+offset_bottom = -409.0
+
+[node name="Pages" type="Control" parent="UI/TeachSimulate"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/TeachSimulate/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer2" parent="UI/TeachSimulate/Pages/Page2" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74162
+anchor_top = 0.38407034
+anchor_right = 1.7416197
+anchor_bottom = 1.3840704
+angle = -45.0
+
+[node name="Pointer3" parent="UI/TeachSimulate/Pages/Page2" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.734335
+anchor_top = 0.6499652
+anchor_right = 1.7343347
+anchor_bottom = 1.6499652
+angle = -45.0
+
+[node name="Page3" type="Control" parent="UI/TeachSimulate/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Pointer2" parent="UI/TeachSimulate/Pages/Page3" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74162
+anchor_top = 0.38407034
+anchor_right = 1.7416197
+anchor_bottom = 1.3840704
+angle = -45.0
+
+[node name="Pointer3" parent="UI/TeachSimulate/Pages/Page3" instance=ExtResource("18_2emff")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.734335
+anchor_top = 0.6499652
+anchor_right = 1.7343347
+anchor_bottom = 1.6499652
+angle = -45.0
+
+[node name="Outro" parent="UI" instance=ExtResource("32_n2hod")]
+lines = PackedStringArray("Did you notice that? The Single Acting Cylinder received air flow and actuated!", "Now that you got the basics down, it\'s time for the next one!", "Your first supplementary activity! This time, I won\'t be guiding you through each step. Good luck!")
+
+[node name="TextureRect" parent="UI/Outro" index="2"]
+offset_top = 30.0
+offset_bottom = -409.0
+
+[node name="Pages" type="Control" parent="UI/Outro"]
+layout_mode = 1
+anchor_left = 0.14253168
+anchor_top = 0.14969136
+anchor_right = 0.85746837
+anchor_bottom = 0.82874006
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/Outro/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Page3" type="Control" parent="UI/Outro/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SceneTransitioner" parent="." instance=ExtResource("33_c6e08")]
+z_index = 99
+layout_mode = 1
+
+[node name="ObjectSlot" parent="." instance=ExtResource("34_3bprs")]
+position = Vector2(82, 459)
+scale = Vector2(0.8, 0.8)
+requiredObject = "Air Dryer"
+
+[node name="ObjectSlot2" parent="." instance=ExtResource("34_3bprs")]
+position = Vector2(199, 459)
+scale = Vector2(0.8, 0.8)
+requiredObject = "Air Service Unit"
+
+[node name="ObjectSlot3" parent="." instance=ExtResource("34_3bprs")]
+position = Vector2(199, 341)
+scale = Vector2(0.8, 0.8)
+requiredObject = "Air Tank Reservoir"
+
+[node name="ObjectSlot4" parent="." instance=ExtResource("34_3bprs")]
+position = Vector2(81.00001, 341)
+scale = Vector2(0.8, 0.8)
+requiredObject = "Compressor"
+
+[node name="EventSignal" parent="ObjectSlot4" instance=ExtResource("8_my1d5")]
+delay = 0.2
+
+[node name="ObjectSlot5" parent="." instance=ExtResource("34_3bprs")]
+position = Vector2(794.99994, 280)
+scale = Vector2(0.8, 0.8)
+requiredObject = "3N Switch"
+
+[node name="ObjectSlot6" parent="." instance=ExtResource("34_3bprs")]
+position = Vector2(794.99994, 406)
+scale = Vector2(0.8, 0.8)
+requiredObject = "3N Button"
+
+[node name="ObjectSlot7" parent="." instance=ExtResource("34_3bprs")]
+position = Vector2(945, 344)
+scale = Vector2(0.8, 0.8)
+requiredObject = "Single Acting Cylinder"
+
+[node name="Player" parent="." instance=ExtResource("35_aamtc")]
+position = Vector2(561, 335)
+
+[node name="PlayerInventory" type="Control" parent="." node_paths=PackedStringArray("player")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("36_wmp1r")
+player = NodePath("../Player")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PlayerInventory"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33605555
+anchor_top = 0.8117284
+anchor_right = 0.665
+anchor_bottom = 0.994
+offset_left = -0.13601685
+offset_right = 2147.5867
+offset_bottom = 668.55475
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("37_8c4dn")
+patch_margin_left = 300
+patch_margin_top = 300
+patch_margin_right = 300
+patch_margin_bottom = 300
+metadata/_edit_use_anchors_ = true
+
+[node name="Next" parent="PlayerInventory/NinePatchRect" instance=ExtResource("38_24aj4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0158311
+anchor_right = 1.0765172
+pivot_offset = Vector2(-40, 393.3335)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionPolygon2D" parent="PlayerInventory/NinePatchRect/Next/DirectionalButton/ClickableComponent" index="0"]
+polygon = PackedVector2Array(0, 286.66675, 153.3335, 393.3335, 0, 493.3335)
+
+[node name="Prev" parent="PlayerInventory/NinePatchRect" instance=ExtResource("38_24aj4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01583123
+anchor_right = 0.076517306
+rotation = 3.1415927
+pivot_offset = Vector2(-40, 393.3335)
+offset = Vector2(-10, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionPolygon2D" parent="PlayerInventory/NinePatchRect/Prev/DirectionalButton/ClickableComponent" index="0"]
+polygon = PackedVector2Array(0, 286.66675, 153.3335, 393.3335, 0, 493.3335)
+
+[node name="PanelContainer" type="PanelContainer" parent="PlayerInventory"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4652778
+anchor_top = 0.83487654
+anchor_right = 0.535
+anchor_bottom = 0.958605
+offset_right = -0.32000732
+offset_bottom = -0.17602539
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 30)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_axaaf")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerInventory/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerInventory/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+mouse_filter = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="InvItem" parent="PlayerInventory/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("39_sxk1p")]
+layout_mode = 2
+objectTexture = ExtResource("25_ekxjy")
+objectName = "Compressor"
+object = ExtResource("40_cqasr")
+
+[node name="InvItem3" parent="PlayerInventory/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("39_sxk1p")]
+layout_mode = 2
+objectTexture = ExtResource("41_kiwlt")
+objectName = "Air Tank Reservoir"
+object = ExtResource("42_kkp34")
+
+[node name="InvItem2" parent="PlayerInventory/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("39_sxk1p")]
+layout_mode = 2
+objectTexture = ExtResource("43_gm2bq")
+objectName = "Air Dryer"
+object = ExtResource("44_vfqv2")
+
+[node name="InvItem4" parent="PlayerInventory/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("39_sxk1p")]
+layout_mode = 2
+objectTexture = ExtResource("45_hvnwd")
+objectName = "Air Service Unit"
+object = ExtResource("46_vt8q2")
+
+[node name="InvItem5" parent="PlayerInventory/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("39_sxk1p")]
+layout_mode = 2
+objectTexture = ExtResource("47_652lx")
+objectName = "3N Switch"
+object = ExtResource("48_cl1xa")
+
+[node name="InvItem6" parent="PlayerInventory/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("39_sxk1p")]
+visible = false
+layout_mode = 2
+objectTexture = ExtResource("49_jn732")
+objectName = "Single Acting Cylinder"
+object = ExtResource("50_gojdk")
+
+[node name="InvItem7" parent="PlayerInventory/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("39_sxk1p")]
+visible = false
+layout_mode = 2
+objectTexture = ExtResource("51_68uev")
+objectName = "3N Button"
+object = ExtResource("52_g78ef")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="PlayerInventory"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.15294118, 0.15294118, 0.15294118, 0.5294118)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3420139
+anchor_top = 0.7623457
+anchor_right = 0.6579861
+anchor_bottom = 0.80246913
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("53_edc4h")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PlayerInventory/NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_5qkcg")
+theme_override_font_sizes/normal_font_size = 18
+text = "Two Way Repeater"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CustomAnimator" parent="PlayerInventory/NinePatchRect2" instance=ExtResource("27_m7vle")]
+
+[node name="PlaceButton" type="Button" parent="PlayerInventory"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07118055
+anchor_top = 0.86419755
+anchor_right = 0.25
+anchor_bottom = 0.93364197
+pivot_offset = Vector2(153, 38)
+focus_mode = 0
+theme = ExtResource("7_5qkcg")
+theme_override_font_sizes/font_size = 25
+shortcut = SubResource("Shortcut_bh3s2")
+shortcut_in_tooltip = false
+text = "PLACE"
+script = ExtResource("54_ci1af")
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="PlayerInventory/PlaceButton" instance=ExtResource("27_m7vle")]
+lerpAlpha = false
+shakeTime = 0.3
+shakeMagnitude = 5.0
+shakeSpeed = 8.0
+
+[node name="SlotsManager" type="Node2D" parent="." node_paths=PackedStringArray("requiredSlots")]
+script = ExtResource("55_8fdjf")
+requiredSlots = [NodePath("../ObjectSlot"), NodePath("../ObjectSlot2"), NodePath("../ObjectSlot3"), NodePath("../ObjectSlot4")]
+
+[node name="SlotsManager2" type="Node2D" parent="." node_paths=PackedStringArray("requiredSlots")]
+script = ExtResource("55_8fdjf")
+requiredSlots = [NodePath("../ObjectSlot5"), NodePath("../ObjectSlot6"), NodePath("../ObjectSlot7")]
+
+[node name="Warning Notif" parent="." instance=ExtResource("56_s0wt1")]
+layout_mode = 1
+
+[node name="Simulator" type="Node" parent="."]
+script = ExtResource("57_npffi")
+requiredComponentOrder = Array[String](["Compressor", "Air Tank Reservoir", "Air Dryer", "Air Service Unit", "3N Switch", "3N Button", "Single Acting Cylinder"])
+
+[node name="SimulationButtons" parent="." instance=ExtResource("58_swgwk")]
+layout_mode = 1
+
+[connection signal="pressed" from="UI/Intro/TextureRect/NextButton" to="UI/Intro" method="next"]
+[connection signal="pressed" from="UI/Intro/TextureRect/NextButton2" to="UI/Intro" method="next"]
+[connection signal="clicked" from="PlayerInventory/NinePatchRect/Next" to="PlayerInventory" method="next"]
+[connection signal="clicked" from="PlayerInventory/NinePatchRect/Prev" to="PlayerInventory" method="prev"]
+[connection signal="pressed" from="PlayerInventory/PlaceButton" to="PlayerInventory" method="place"]
+
+[editable path="UI/Tutor/Pages"]
+[editable path="UI/TeachPos1"]
+[editable path="UI/TeachPos2"]
+[editable path="UI/ConnectionIntro"]
+[editable path="UI/ConnectionAll"]
+[editable path="UI/TeachPlay"]
+[editable path="UI/TeachSimulate"]
+[editable path="UI/Outro"]
+[editable path="PlayerInventory/NinePatchRect/Next"]
+[editable path="PlayerInventory/NinePatchRect/Prev"]

@@ -2,6 +2,9 @@ extends Node
 
 class_name CustomAnimator
 
+@export var lerpOffset: bool = false
+@export var lerpAlpha: bool = true
+
 # for tittering
 @export var titterMagnitude: float = 5
 @export var titterSpeed: float = 0.5
@@ -12,22 +15,35 @@ class_name CustomAnimator
 @export var shakeSpeed: float = 6.0
 
 var parent
-
+var targetAlpha: float = 1.0
 var shakeTimer: float = 0.0
+var offset: Vector2 = Vector2.ZERO
+var initialPos: Vector2
 
 func _ready() -> void:
 	assert(is_instance_valid(get_parent()))
 	assert(is_instance_of(get_parent(), Node2D) or is_instance_of(get_parent(), Control))
 	parent = get_parent()
 	targetScale = parent.scale
+	initialPos = parent.global_position
 
 func _process(delta: float) -> void:
 	shakeProcess(delta)
 	parent.scale = lerp(parent.scale, targetScale, 0.3)
+	if lerpAlpha:
+		parent.modulate.a = lerp(parent.modulate.a, targetAlpha, 0.3)
+	if lerpOffset:
+		parent.global_position = lerp(parent.global_position, initialPos + offset, 0.5)
 
 var targetScale: Vector2
 func setScale(scale: float):
 	targetScale = Vector2(scale, scale)
+
+func lerpToOffset(offsetAmount: Vector2):
+	offset = offsetAmount
+
+func clearOffset():
+	offset = Vector2.ZERO
 
 var sineMultiplier: float = 0
 func titter(value: bool):
@@ -41,6 +57,9 @@ func titter(value: bool):
 
 func triggerShake() -> void:
 	shakeTimer = shakeTime
+
+func setAlpha(a: float):
+	targetAlpha = a
 
 func shakeProcess(delta: float) -> void:
 	if shakeTimer > 0:
@@ -59,6 +78,7 @@ func hide() -> void:
 
 func springIn(targetScale: Vector2, speed: float) -> void:
 	setVisible(true)
+	parent.modulate.a = 1
 	var tween = create_tween()
 	tween.tween_property(parent, "scale", targetScale * 1.2, speed * 0.6).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(parent, "scale", targetScale, speed * 0.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
@@ -120,3 +140,7 @@ func scalePulse(value: bool, speed: float, magnitude: float, equilibrium: float)
 		scaleSineMultiplier += speed
 		var s: float = equilibrium + sin(scaleSineMultiplier) * magnitude
 		parent.scale = Vector2(s, s)
+
+
+func onGuiInput(event: InputEvent) -> void:
+	pass # Replace with function body.

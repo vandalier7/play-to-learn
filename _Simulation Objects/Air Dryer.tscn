@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpw46ggspkpo7"]
+
+[ext_resource type="Script" uid="uid://b7pwdl3tcscwm" path="res://_Simulation Objects/simulationScripts/airDryer.gd" id="1_r316k"]
+[ext_resource type="Texture2D" uid="uid://bf4fivblqy5wi" path="res://Textures/2D/Dryer 2D.png" id="2_r316k"]
+[ext_resource type="PackedScene" uid="uid://b7ca684gu7ye3" path="res://Objects/port.tscn" id="3_xrah8"]
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="4_n2vtq"]
+
+[node name="Air Dryer" type="Node2D" node_paths=PackedStringArray("inputPorts", "outputPorts")]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_r316k")
+objectName = "Air Dryer"
+inputPorts = [NodePath("Port")]
+outputPorts = [NodePath("Port2")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_r316k")
+
+[node name="Port" parent="." instance=ExtResource("3_xrah8")]
+position = Vector2(117.5, -49.999996)
+lineColor = Color(0.59607846, 0.59607846, 0.59607846, 1)
+
+[node name="Port2" parent="." instance=ExtResource("3_xrah8")]
+position = Vector2(117.49999, 7.4999995)
+lineColor = Color(0.59607846, 0.59607846, 0.59607846, 1)
+
+[node name="CustomAnimator" type="Node" parent="."]
+script = ExtResource("4_n2vtq")
+metadata/_custom_type_script = "uid://ckwy4c8mrooou"

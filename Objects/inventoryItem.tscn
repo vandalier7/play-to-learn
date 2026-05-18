@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgrsgh8xjoclg"]
+
+[ext_resource type="Script" uid="uid://dfxrov0eujnay" path="res://Objects/itemSlot.gd" id="1_rfbdt"]
+[ext_resource type="Texture2D" uid="uid://bto32lmignny6" path="res://UI/itemSlot.png" id="2_vn34k"]
+[ext_resource type="Texture2D" uid="uid://dwq8evmc6aka8" path="res://icon.svg" id="3_vn34k"]
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="3_yxwg7"]
+
+[node name="Slot" type="Control"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 3
+anchors_preset = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_rfbdt")
+
+[node name="NinePatchRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 99.5)
+texture = ExtResource("2_vn34k")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(18, 36)
+texture = ExtResource("3_vn34k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CustomAnimator" type="Node" parent="."]
+script = ExtResource("3_yxwg7")
+metadata/_custom_type_script = "uid://ckwy4c8mrooou"
+
+[connection signal="gui_input" from="." to="." method="onGuiInput"]

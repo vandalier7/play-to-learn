@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://p6b0erfgn5qa"]
+
+[ext_resource type="PackedScene" uid="uid://d0y1ustpeiwo7" path="res://_Simulation Objects/Compressor.tscn" id="1_hybjd"]
+
+[node name="Test2" type="Node2D"]
+
+[node name="Compressor" parent="." instance=ExtResource("1_hybjd")]
+position = Vector2(125, 147)
+
+[node name="Compressor2" parent="." instance=ExtResource("1_hybjd")]
+position = Vector2(645, 147)

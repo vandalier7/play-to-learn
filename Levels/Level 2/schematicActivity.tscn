@@ -1,0 +1,451 @@
+[gd_scene load_steps=16 format=3 uid="uid://b88wdj7f2ocet"]
+
+[ext_resource type="Texture2D" uid="uid://bq4kdjpm750kl" path="res://UI/White Window.png" id="1_u6oo3"]
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="2_6h5xe"]
+[ext_resource type="Script" uid="uid://ikdok2l5hiw6" path="res://Levels/Level 1/schematicActivity.gd" id="2_cc31g"]
+[ext_resource type="Texture2D" uid="uid://c512kngft73on" path="res://UI/divider.png" id="3_28hhj"]
+[ext_resource type="Texture2D" uid="uid://82toooo6ebku" path="res://Schematics/electric.png" id="4_irfj1"]
+[ext_resource type="Texture2D" uid="uid://b7upeb8regu8h" path="res://Schematics/pneumaticAct.png" id="5_th63s"]
+[ext_resource type="PackedScene" uid="uid://cygm1tygqdp60" path="res://Levels/Level 1/schematicSlot.tscn" id="6_6h5xe"]
+[ext_resource type="Texture2D" uid="uid://74qccpwyahip" path="res://Textures/Schematic Slot.png" id="7_4rmsj"]
+[ext_resource type="Script" uid="uid://wty31arxbg7x" path="res://Levels/Level 1/slotsHandler.gd" id="7_irfj1"]
+[ext_resource type="Script" uid="uid://cqc3in5wnjs53" path="res://Scripts/schematicObject.gd" id="7_wkhrl"]
+[ext_resource type="Script" uid="uid://djogibs1q22gj" path="res://Scripts/draggableArea.gd" id="8_th63s"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="9_rdjn3"]
+[ext_resource type="Texture2D" uid="uid://c7ty5pgoha2ff" path="res://UI/thinLightPanel.png" id="12_th63s"]
+[ext_resource type="PackedScene" uid="uid://dyj5feekwuo22" path="res://Objects/submitButton.tscn" id="13_rdjn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cc31g"]
+size = Vector2(36, 26)
+
+[node name="NinePatchRect" type="NinePatchRect" node_paths=PackedStringArray("slots")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+z_index = -2
+anchors_preset = -1
+anchor_left = 0.0390625
+anchor_top = 0.06481481
+anchor_right = 0.95340276
+anchor_bottom = 0.79811114
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+texture = ExtResource("1_u6oo3")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 150
+script = ExtResource("2_cc31g")
+slots = [NodePath("SlotsHandler/Schematic Slot 1"), NodePath("SlotsHandler/Schematic Slot 2"), NodePath("SlotsHandler/Schematic Slot 3"), NodePath("SlotsHandler/Schematic Slot 4")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Page" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.033238366
+anchor_top = 0.22920518
+anchor_right = 0.96676165
+anchor_bottom = 1.1852632
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText" type="RichTextLabel" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="RichTextLabel" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034587994
+anchor_top = -0.24194187
+anchor_right = 0.97660226
+anchor_bottom = -0.010729292
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_colors/default_color = Color(0.3118496, 0.31184962, 0.3118496, 1)
+text = "Schematic Diagram Activity"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Desc" type="RichTextLabel" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034587994
+anchor_top = -0.14285077
+anchor_right = 0.97660226
+anchor_bottom = -0.012931317
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_colors/default_color = Color(0.3118496, 0.31184962, 0.3118496, 1)
+theme_override_font_sizes/normal_font_size = 18
+text = "Drag and drop the correct labels to the respective places so that each cylinder activates in a specific sequence rather than simultaneously."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Page"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.016393442
+anchor_right = 0.83753955
+anchor_bottom = 0.7002342
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_28hhj")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02040234
+anchor_top = 0.10681246
+anchor_right = 0.3931529
+anchor_bottom = 0.7385968
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_irfj1")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="Page"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4186505
+anchor_top = 0.07272338
+anchor_right = 0.97595507
+anchor_bottom = 0.7385968
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_th63s")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="SlotObject" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(91, 531)
+script = ExtResource("7_wkhrl")
+objectName = "1"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject"]
+modulate = Color(0.39181867, 0.39181864, 0.39181864, 1)
+position = Vector2(-6.198883e-06, -2.69413e-05)
+scale = Vector2(0.08990025, 0.108333364)
+texture = ExtResource("7_4rmsj")
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject"]
+collision_mask = 2
+script = ExtResource("8_th63s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject/DraggableArea"]
+position = Vector2(3.5762787e-06, -2.7179718e-05)
+shape = SubResource("RectangleShape2D_cc31g")
+
+[node name="CustomAnimator" parent="SlotObject" instance=ExtResource("9_rdjn3")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlotObject"]
+offset_left = -25.0
+offset_top = -17.0
+offset_right = 25.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_font_sizes/normal_font_size = 24
+text = "C1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotObject3" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(134, 531)
+script = ExtResource("7_wkhrl")
+objectName = "1"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject3"]
+modulate = Color(0.39181867, 0.39181864, 0.39181864, 1)
+position = Vector2(-6.198883e-06, -2.69413e-05)
+scale = Vector2(0.08990025, 0.108333364)
+texture = ExtResource("7_4rmsj")
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject3"]
+collision_mask = 2
+script = ExtResource("8_th63s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject3/DraggableArea"]
+position = Vector2(3.5762787e-06, -2.7179718e-05)
+shape = SubResource("RectangleShape2D_cc31g")
+
+[node name="CustomAnimator" parent="SlotObject3" instance=ExtResource("9_rdjn3")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlotObject3"]
+offset_left = -25.0
+offset_top = -17.0
+offset_right = 25.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_font_sizes/normal_font_size = 24
+text = "C1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotObject4" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(176, 531)
+script = ExtResource("7_wkhrl")
+objectName = "1"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject4"]
+modulate = Color(0.39181867, 0.39181864, 0.39181864, 1)
+position = Vector2(-6.198883e-06, -2.69413e-05)
+scale = Vector2(0.08990025, 0.108333364)
+texture = ExtResource("7_4rmsj")
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject4"]
+collision_mask = 2
+script = ExtResource("8_th63s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject4/DraggableArea"]
+position = Vector2(3.5762787e-06, -2.7179718e-05)
+shape = SubResource("RectangleShape2D_cc31g")
+
+[node name="CustomAnimator" parent="SlotObject4" instance=ExtResource("9_rdjn3")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlotObject4"]
+offset_left = -25.0
+offset_top = -17.0
+offset_right = 25.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_font_sizes/normal_font_size = 24
+text = "C1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotObject2" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(332, 531)
+script = ExtResource("7_wkhrl")
+objectName = "2"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject2"]
+modulate = Color(0.39181867, 0.39181864, 0.39181864, 1)
+position = Vector2(-6.198883e-06, -2.69413e-05)
+scale = Vector2(0.08990025, 0.108333364)
+texture = ExtResource("7_4rmsj")
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject2"]
+collision_mask = 2
+script = ExtResource("8_th63s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject2/DraggableArea"]
+position = Vector2(3.5762787e-06, -2.7179718e-05)
+shape = SubResource("RectangleShape2D_cc31g")
+
+[node name="CustomAnimator" parent="SlotObject2" instance=ExtResource("9_rdjn3")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlotObject2"]
+offset_left = -24.0
+offset_top = -17.0
+offset_right = 26.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_font_sizes/normal_font_size = 24
+text = "C2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotObject5" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(289, 531)
+script = ExtResource("7_wkhrl")
+objectName = "2"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject5"]
+modulate = Color(0.39181867, 0.39181864, 0.39181864, 1)
+position = Vector2(-6.198883e-06, -2.69413e-05)
+scale = Vector2(0.08990025, 0.108333364)
+texture = ExtResource("7_4rmsj")
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject5"]
+collision_mask = 2
+script = ExtResource("8_th63s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject5/DraggableArea"]
+position = Vector2(3.5762787e-06, -2.7179718e-05)
+shape = SubResource("RectangleShape2D_cc31g")
+
+[node name="CustomAnimator" parent="SlotObject5" instance=ExtResource("9_rdjn3")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlotObject5"]
+offset_left = -24.0
+offset_top = -17.0
+offset_right = 26.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_font_sizes/normal_font_size = 24
+text = "C2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotObject6" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(246, 531)
+script = ExtResource("7_wkhrl")
+objectName = "2"
+
+[node name="Sprite2D" type="Sprite2D" parent="SlotObject6"]
+modulate = Color(0.39181867, 0.39181864, 0.39181864, 1)
+position = Vector2(-6.198883e-06, -2.69413e-05)
+scale = Vector2(0.08990025, 0.108333364)
+texture = ExtResource("7_4rmsj")
+
+[node name="DraggableArea" type="Area2D" parent="SlotObject6"]
+collision_mask = 2
+script = ExtResource("8_th63s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotObject6/DraggableArea"]
+position = Vector2(3.5762787e-06, -2.7179718e-05)
+shape = SubResource("RectangleShape2D_cc31g")
+
+[node name="CustomAnimator" parent="SlotObject6" instance=ExtResource("9_rdjn3")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SlotObject6"]
+offset_left = -24.0
+offset_top = -17.0
+offset_right = 26.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme = ExtResource("2_6h5xe")
+theme_override_font_sizes/normal_font_size = 24
+text = "C2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotsHandler" type="Node2D" parent="."]
+position = Vector2(0, 66)
+script = ExtResource("7_irfj1")
+metadata/_custom_type_script = "uid://wty31arxbg7x"
+
+[node name="Schematic Slot 1" parent="SlotsHandler" instance=ExtResource("6_6h5xe")]
+position = Vector2(664, 213)
+scale = Vector2(0.4, 0.49)
+matchedObject = "1"
+
+[node name="Schematic Slot 2" parent="SlotsHandler" instance=ExtResource("6_6h5xe")]
+position = Vector2(814, 208)
+scale = Vector2(0.4, 0.49)
+matchedObject = "2"
+
+[node name="Schematic Slot 3" parent="SlotsHandler" instance=ExtResource("6_6h5xe")]
+position = Vector2(183, 280)
+scale = Vector2(0.4, 0.49)
+matchedObject = "1"
+
+[node name="Schematic Slot 4" parent="SlotsHandler" instance=ExtResource("6_6h5xe")]
+position = Vector2(273, 280)
+scale = Vector2(0.4, 0.49)
+matchedObject = "2"
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0009496676
+anchor_top = 0.9726316
+anchor_right = 0.4020133
+anchor_bottom = 1.2887917
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+texture = ExtResource("1_u6oo3")
+patch_margin_left = 100
+patch_margin_top = 50
+patch_margin_right = 100
+patch_margin_bottom = 100
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0009496676
+anchor_top = 0.13473684
+anchor_right = 1.0126495
+anchor_bottom = 1.0277389
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+texture = ExtResource("1_u6oo3")
+patch_margin_left = 100
+patch_margin_top = 50
+patch_margin_right = 100
+patch_margin_bottom = 100
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06647673
+anchor_top = -0.002105263
+anchor_right = 0.9471225
+anchor_bottom = 0.2698442
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+texture = ExtResource("12_th63s")
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" parent="." instance=ExtResource("13_rdjn3")]
+z_index = -2
+layout_mode = 1
+anchor_left = 0.5394112
+anchor_top = 1.071579
+anchor_right = 0.8067723
+anchor_bottom = 1.1904061
+mouse_default_cursor_shape = 8
+disabled = true
+
+[node name="CustomAnimator" parent="." instance=ExtResource("9_rdjn3")]

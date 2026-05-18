@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0y1ustpeiwo7"]
+
+[ext_resource type="Script" uid="uid://b40jffvhnbv3c" path="res://_Simulation Objects/simulationScripts/compressor.gd" id="1_el6dq"]
+[ext_resource type="Texture2D" uid="uid://otsys1mvisfn" path="res://Textures/2D/Compressor 2D.png" id="1_mg2mk"]
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="3_el6dq"]
+[ext_resource type="PackedScene" uid="uid://b7ca684gu7ye3" path="res://Objects/port.tscn" id="3_q6mfb"]
+
+[node name="Compressor" type="Node2D" node_paths=PackedStringArray("outputPorts")]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_el6dq")
+objectName = "Compressor"
+outputPorts = [NodePath("Port")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mg2mk")
+
+[node name="Port" parent="." instance=ExtResource("3_q6mfb")]
+position = Vector2(94, -55)
+lineColor = Color(0.7441813, 0.7441813, 0.7441813, 1)
+
+[node name="CustomAnimator" type="Node" parent="."]
+script = ExtResource("3_el6dq")
+metadata/_custom_type_script = "uid://ckwy4c8mrooou"

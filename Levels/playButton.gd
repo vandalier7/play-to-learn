@@ -2,4 +2,4 @@ extends Button
 
 func play():
 	SignalBus.closeScene.emit()
-	SceneManager.switchScene("level1")
+	SceneManager.switchScene("level3")

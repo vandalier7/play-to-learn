@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dssoimkb37dqv"]
+
+[ext_resource type="Texture2D" uid="uid://dwq8evmc6aka8" path="res://icon.svg" id="1_5x84n"]
+[ext_resource type="Script" uid="uid://duk56hxhfvti7" path="res://Scripts/nodeTest.gd" id="2_s7pls"]
+[ext_resource type="Script" uid="uid://48gae0kwnp2d" path="res://Scripts/clickable.gd" id="3_f15lw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pttnp"]
+size = Vector2(139.6355, 139.63599)
+
+[node name="Port" type="Sprite2D"]
+texture = ExtResource("1_5x84n")
+script = ExtResource("2_s7pls")
+
+[node name="ClickableComponent" type="Area2D" parent="."]
+script = ExtResource("3_f15lw")
+metadata/_custom_type_script = "uid://48gae0kwnp2d"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableComponent"]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_pttnp")
+
+[connection signal="clicked" from="ClickableComponent" to="." method="onClicked"]

@@ -2,7 +2,9 @@ extends Node
 
 var scenes: Dictionary = {
 	"menu" : "res://Levels/menu.tscn",
-	"level1" : "res://Levels/Level 1/level1.tscn"
+	"level1" : "res://Levels/Level 1/level1.tscn",
+	"level2" : "res://Levels/Level 2/level2.tscn",
+	"level3" : "res://Levels/Level 3/level3.tscn",
 }
 
 var canvasLayer: CanvasLayer

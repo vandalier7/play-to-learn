@@ -1,0 +1,198 @@
+[gd_scene load_steps=13 format=3 uid="uid://bnwpt0kdmmyxi"]
+
+[ext_resource type="Script" uid="uid://bh20v0m0j6plu" path="res://Scripts/playerInventory.gd" id="1_63uxe"]
+[ext_resource type="PackedScene" uid="uid://dgrsgh8xjoclg" path="res://Objects/inventoryItem.tscn" id="1_blsky"]
+[ext_resource type="Texture2D" uid="uid://df02ri27flb24" path="res://UI/Deck.png" id="2_n78ap"]
+[ext_resource type="PackedScene" uid="uid://b65qimx2c6t6h" path="res://Objects/directionalButton.tscn" id="3_tusu4"]
+[ext_resource type="Texture2D" uid="uid://otsys1mvisfn" path="res://Textures/2D/Compressor 2D.png" id="3_yegkw"]
+[ext_resource type="Texture2D" uid="uid://bjruagjwxhkfd" path="res://Textures/2D/Service 2D.png" id="4_n78ap"]
+[ext_resource type="Texture2D" uid="uid://w1qrb6hkb0kj" path="res://Textures/2D/Tank 2D.png" id="5_2hk6g"]
+[ext_resource type="Texture2D" uid="uid://brgualsyialiu" path="res://UI/blockSlot.png" id="7_p6q4i"]
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="8_nh1po"]
+[ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="9_nh1po"]
+[ext_resource type="Script" uid="uid://c46wxwi4w86rw" path="res://Scripts/placeButton.gd" id="11_id2ra"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2hk6g"]
+texture = ExtResource("2_n78ap")
+expand_margin_left = 60.0
+expand_margin_top = 5.0
+expand_margin_right = 60.0
+expand_margin_bottom = 10.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="PlayerInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_63uxe")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33605555
+anchor_top = 0.8117284
+anchor_right = 0.665
+anchor_bottom = 0.994
+offset_left = -0.13601685
+offset_right = 2147.5867
+offset_bottom = 668.55475
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_n78ap")
+patch_margin_left = 300
+patch_margin_top = 300
+patch_margin_right = 300
+patch_margin_bottom = 300
+metadata/_edit_use_anchors_ = true
+
+[node name="Next" parent="NinePatchRect" instance=ExtResource("3_tusu4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0158311
+anchor_right = 1.0765172
+pivot_offset = Vector2(-40, 393.3335)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionPolygon2D" parent="NinePatchRect/Next/DirectionalButton/ClickableComponent" index="0"]
+polygon = PackedVector2Array(0, 286.66675, 153.3335, 393.3335, 0, 493.3335)
+
+[node name="Prev" parent="NinePatchRect" instance=ExtResource("3_tusu4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01583123
+anchor_right = 0.076517306
+rotation = 3.1415927
+pivot_offset = Vector2(-40, 393.3335)
+offset = Vector2(-10, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionPolygon2D" parent="NinePatchRect/Prev/DirectionalButton/ClickableComponent" index="0"]
+polygon = PackedVector2Array(0, 286.66675, 153.3335, 393.3335, 0, 493.3335)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4652778
+anchor_top = 0.83487654
+anchor_right = 0.535
+anchor_bottom = 0.958605
+offset_right = -0.32000732
+offset_bottom = -0.17602539
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 30)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2hk6g")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+mouse_filter = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="InvItem" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_blsky")]
+layout_mode = 2
+objectTexture = ExtResource("3_yegkw")
+objectName = "Object 1"
+
+[node name="InvItem2" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_blsky")]
+layout_mode = 2
+objectTexture = ExtResource("4_n78ap")
+objectName = "Object B"
+
+[node name="InvItem3" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_blsky")]
+layout_mode = 2
+objectTexture = ExtResource("5_2hk6g")
+objectName = "Object III"
+
+[node name="InvItem4" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_blsky")]
+layout_mode = 2
+objectTexture = ExtResource("5_2hk6g")
+
+[node name="InvItem5" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_blsky")]
+layout_mode = 2
+objectTexture = ExtResource("5_2hk6g")
+
+[node name="InvItem6" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_blsky")]
+visible = false
+layout_mode = 2
+objectTexture = ExtResource("3_yegkw")
+objectName = "Last Object with Long Name"
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.15294118, 0.15294118, 0.15294118, 0.5294118)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3420139
+anchor_top = 0.7623457
+anchor_right = 0.6579861
+anchor_bottom = 0.80246913
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_p6q4i")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_nh1po")
+theme_override_font_sizes/normal_font_size = 18
+text = "Two Way Repeater"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CustomAnimator" parent="NinePatchRect2" instance=ExtResource("9_nh1po")]
+
+[node name="PlaceButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07118055
+anchor_top = 0.86419755
+anchor_right = 0.25
+anchor_bottom = 0.93364197
+pivot_offset = Vector2(153, 38)
+focus_mode = 0
+theme = ExtResource("8_nh1po")
+theme_override_font_sizes/font_size = 25
+text = "PLACE"
+script = ExtResource("11_id2ra")
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="PlaceButton" instance=ExtResource("9_nh1po")]
+lerpAlpha = false
+shakeTime = 0.3
+shakeMagnitude = 5.0
+shakeSpeed = 8.0
+
+[connection signal="clicked" from="NinePatchRect/Next" to="." method="next"]
+[connection signal="clicked" from="NinePatchRect/Prev" to="." method="prev"]
+[connection signal="pressed" from="PlaceButton" to="." method="place"]
+
+[editable path="NinePatchRect/Next"]
+[editable path="NinePatchRect/Prev"]

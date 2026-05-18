@@ -28,6 +28,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.34117648)
 
 [node name="CustomAnimator" parent="Backdrop" instance=ExtResource("2_cs3ni")]
+lerpAlpha = false
 
 [node name="CustomAnimator" parent="." instance=ExtResource("2_cs3ni")]
 
@@ -81,6 +82,7 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="CustomAnimator" parent="TextureRect/NextButton" instance=ExtResource("2_cs3ni")]
+lerpAlpha = false
 shakeTime = 0.3
 shakeMagnitude = 5.0
 shakeSpeed = 8.0

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ytwmco41fn87"]
+
+[ext_resource type="Script" uid="uid://m6yjo65352v2" path="res://_Simulation Objects/simulationScripts/airServiceUnit.gd" id="1_ns7ly"]
+[ext_resource type="Texture2D" uid="uid://bjruagjwxhkfd" path="res://Textures/2D/Service 2D.png" id="2_ns7ly"]
+[ext_resource type="PackedScene" uid="uid://b7ca684gu7ye3" path="res://Objects/port.tscn" id="3_h5bji"]
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="4_4y1j8"]
+
+[node name="Air Service Unit" type="Node2D" node_paths=PackedStringArray("inputPorts", "outputPorts")]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_ns7ly")
+objectName = "Air Service Unit"
+inputPorts = [NodePath("Port")]
+outputPorts = [NodePath("Port2")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ns7ly")
+
+[node name="Port" parent="." instance=ExtResource("3_h5bji")]
+position = Vector2(-94.999985, -22.500004)
+portDirection = Vector2i(-1, 0)
+lineColor = Color(0.59607846, 0.59607846, 0.59607846, 1)
+
+[node name="Port2" parent="." instance=ExtResource("3_h5bji")]
+position = Vector2(95, -22.499998)
+
+[node name="CustomAnimator" type="Node" parent="."]
+script = ExtResource("4_4y1j8")
+metadata/_custom_type_script = "uid://ckwy4c8mrooou"

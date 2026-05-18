@@ -1,0 +1,661 @@
+[gd_scene load_steps=26 format=3 uid="uid://cvdl228gk2iwe"]
+
+[ext_resource type="Texture2D" uid="uid://swp8cralcbsc" path="res://Environment/Idea.png" id="1_c4m40"]
+[ext_resource type="Texture2D" uid="uid://b1op4y18g35ox" path="res://Environment/TABLE.png" id="2_lbxoe"]
+[ext_resource type="Texture2D" uid="uid://bv2q783j7vwud" path="res://Environment/Sheets/fan.png" id="3_vhsuo"]
+[ext_resource type="Script" uid="uid://cqkx7b6343k2t" path="res://Scripts/looper.gd" id="4_xicax"]
+[ext_resource type="PackedScene" uid="uid://teifbalowpp0" path="res://Objects/eventSignal.tscn" id="5_m1spl"]
+[ext_resource type="Script" uid="uid://b5rt5qsw5ka3e" path="res://Levels/Level 1/studyActivity.gd" id="6_datda"]
+[ext_resource type="PackedScene" uid="uid://48godyqboas6" path="res://Objects/action.tscn" id="7_vlnd1"]
+[ext_resource type="PackedScene" uid="uid://fc6lg40248kl" path="res://Objects/director.tscn" id="8_js6ci"]
+[ext_resource type="PackedScene" uid="uid://dwe1j704t602o" path="res://Objects/talker.tscn" id="9_2gsu2"]
+[ext_resource type="PackedScene" uid="uid://bvlkeigl4gake" path="res://Objects/tutor.tscn" id="9_4dcr0"]
+[ext_resource type="PackedScene" uid="uid://cncb8lume43yb" path="res://Objects/pages.tscn" id="10_yjsvy"]
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="11_j2j10"]
+[ext_resource type="Texture2D" uid="uid://tmr0hfcwxvjd" path="res://Levels/Level 2/page1.png" id="12_lntaw"]
+[ext_resource type="Texture2D" uid="uid://cpbnphin4pary" path="res://Textures/Schema/Compressor.png" id="14_7v0nt"]
+[ext_resource type="Texture2D" uid="uid://c512kngft73on" path="res://UI/divider.png" id="14_w2q1p"]
+[ext_resource type="Texture2D" uid="uid://sotrnnny5oi2" path="res://Levels/Level 2/page2.png" id="15_iua2e"]
+[ext_resource type="PackedScene" uid="uid://cpqqql3f2q8se" path="res://Objects/pointer.tscn" id="15_qu1v0"]
+[ext_resource type="Texture2D" uid="uid://otsys1mvisfn" path="res://Textures/2D/Compressor 2D.png" id="15_r72t8"]
+[ext_resource type="Texture2D" uid="uid://b6rsh8mao1c26" path="res://Levels/Level 2/page3.png" id="16_5d7o0"]
+[ext_resource type="PackedScene" uid="uid://b88wdj7f2ocet" path="res://Levels/Level 2/schematicActivity.tscn" id="16_qu1v0"]
+[ext_resource type="Texture2D" uid="uid://daj86hhu63wkt" path="res://Levels/Level 2/page4.png" id="17_upvr5"]
+[ext_resource type="Texture2D" uid="uid://ky5ii3vwnlxp" path="res://UI/componentTitle.png" id="18_vhsuo"]
+[ext_resource type="Texture2D" uid="uid://c7ty5pgoha2ff" path="res://UI/thinLightPanel.png" id="19_xicax"]
+[ext_resource type="PackedScene" uid="uid://uaclj4i3j5mv" path="res://Objects/sceneTransitioner.tscn" id="22_o3rdc"]
+[ext_resource type="PackedScene" uid="uid://dg2so6pchnk8h" path="res://Levels/Level 2/powerMeetsAir2.tscn" id="24_xicax"]
+
+[node name="Level2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Environment" type="TextureRect" parent="."]
+z_index = -999
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00044444535
+anchor_top = -0.015876547
+anchor_right = 1.0004444
+anchor_bottom = 1.0112469
+offset_left = 0.51200104
+offset_top = 0.288002
+offset_right = -0.5119629
+offset_bottom = -0.2880249
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_c4m40")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Table" type="Sprite2D" parent="Environment"]
+visible = false
+position = Vector2(585, 389)
+scale = Vector2(0.6575, 0.6575)
+texture = ExtResource("2_lbxoe")
+
+[node name="Fan" type="Sprite2D" parent="Environment"]
+position = Vector2(1018.0814, 90.875)
+scale = Vector2(0.4610092, 0.46100917)
+texture = ExtResource("3_vhsuo")
+hframes = 6
+frame = 5
+script = ExtResource("4_xicax")
+frameInterval = 0.12
+
+[node name="Events" type="Node" parent="."]
+
+[node name="EventSignal" parent="Events" instance=ExtResource("5_m1spl")]
+signalName = "componentInspected"
+
+[node name="ClickAllComps" type="Node" parent="Events" node_paths=PackedStringArray("components")]
+script = ExtResource("6_datda")
+components = [null, null, null]
+
+[node name="Action" parent="Events" instance=ExtResource("7_vlnd1")]
+signalName = "closeScene"
+
+[node name="Director" parent="." node_paths=PackedStringArray("sequence") instance=ExtResource("8_js6ci")]
+sequence = [NodePath("../UI/Tutor"), NodePath("../UI/Talker"), NodePath("../UI/SchematicActivity"), NodePath("../UI/Talker6"), NodePath("../UI/PowerMeetsAir"), NodePath("../UI/Talker5"), NodePath("../Events/Action")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Tutor" parent="UI" instance=ExtResource("9_4dcr0")]
+lines = PackedStringArray("Looks like we got to analyze two diagrams here, Engineer! Let\'s try to simulate it.", "Let\'s take a look at this valve.", "That\'s how it works for the first connection. Let\'s check the second one.", "Now, we see two circuits are connected. But what are these components on the elctrical side?", "Let us inspect one by one the components in the electrical schematic.", "")
+
+[node name="Pages" parent="UI/Tutor" instance=ExtResource("10_yjsvy")]
+layout_mode = 1
+
+[node name="Page" parent="UI/Tutor/Pages" index="0"]
+visible = false
+
+[node name="BlueText" parent="UI/Tutor/Pages/Page" index="0"]
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+horizontal_alignment = 1
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" parent="UI/Tutor/Pages/Page" index="2"]
+anchor_top = 0.0
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.038614906
+anchor_top = -0.14317416
+anchor_right = 0.9771692
+anchor_bottom = 1.0294904
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_lntaw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Page2" type="Control" parent="UI/Tutor/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueText" type="RichTextLabel" parent="UI/Tutor/Pages/Page2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page2"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_w2q1p")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Pointer" parent="UI/Tutor/Pages/Page2" instance=ExtResource("15_qu1v0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0060708555
+anchor_top = -0.10681246
+anchor_right = 1.006071
+anchor_bottom = 0.8931875
+offset_left = 708.8035
+offset_top = 238.0
+offset_right = 708.80347
+offset_bottom = 238.0
+angle = 45.0
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041043248
+anchor_top = -0.14317416
+anchor_right = 0.97959757
+anchor_bottom = 1.0294904
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_lntaw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Page3" type="Control" parent="UI/Tutor/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueText" type="RichTextLabel" parent="UI/Tutor/Pages/Page3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page3"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_w2q1p")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Pointer" parent="UI/Tutor/Pages/Page3" instance=ExtResource("15_qu1v0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.048566844
+anchor_top = -0.10453986
+anchor_right = 0.95143324
+anchor_bottom = 0.8954601
+offset_left = 708.8035
+offset_top = 238.0
+offset_right = 708.80347
+offset_bottom = 238.0
+angle = 45.0
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036186565
+anchor_top = -0.1681728
+anchor_right = 0.97474086
+anchor_bottom = 1.0044917
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_iua2e")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Page4" type="Control" parent="UI/Tutor/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueText" type="RichTextLabel" parent="UI/Tutor/Pages/Page4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page4"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_w2q1p")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Clipper" type="Control" parent="UI/Tutor/Pages/Page4"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.803513
+offset_right = -515.00006
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page4/Clipper"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036186565
+anchor_top = -0.17044541
+anchor_right = 0.036186565
+anchor_bottom = -0.17
+offset_right = 687.0
+offset_bottom = 515.804
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_5d7o0")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Clipper2" type="Control" parent="UI/Tutor/Pages/Page4"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 346.80353
+offset_right = 5.196411
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page4/Clipper2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036186565
+anchor_top = -0.17044541
+anchor_right = 0.036186565
+anchor_bottom = -0.17
+offset_left = -348.44193
+offset_top = -37.0
+offset_right = 437.08127
+offset_bottom = 552.804
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_5d7o0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Page5" type="Control" parent="UI/Tutor/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueText" type="RichTextLabel" parent="UI/Tutor/Pages/Page5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0068178168
+anchor_right = 0.4016521
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Electrical Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BlueText2" type="RichTextLabel" parent="UI/Tutor/Pages/Page5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42836383
+anchor_top = 0.0068178168
+anchor_right = 0.99635744
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.055432096, 0.35487926, 0.77489877, 1)
+text = "Pneumatic Schematic"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page5"]
+modulate = Color(0.5411765, 0.5411765, 0.5411765, 0.57254905)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.83753955
+anchor_bottom = 0.99312866
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_w2q1p")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Pointer" parent="UI/Tutor/Pages/Page5" instance=ExtResource("15_qu1v0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.57308877
+anchor_top = -0.022726055
+anchor_right = 0.4269113
+anchor_bottom = 0.97727394
+offset_left = 708.8035
+offset_top = 238.0
+offset_right = 708.80347
+offset_bottom = 238.0
+angle = 45.0
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Tutor/Pages/Page5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041043248
+anchor_top = -0.18635365
+anchor_right = 0.9650275
+anchor_bottom = 1.0635794
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_upvr5")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Page6" type="Control" parent="UI/Tutor/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -132.19641
+offset_top = -80.97644
+offset_right = 132.19647
+offset_bottom = 80.97644
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3069853
+anchor_top = 0.18632692
+anchor_right = 0.68001485
+anchor_bottom = 0.27580717
+offset_left = -6.0000763
+offset_top = -0.18798256
+offset_right = 0.14379883
+offset_bottom = -0.052978516
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_vhsuo")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel1" type="NinePatchRect" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5321181
+anchor_top = 0.45524693
+anchor_right = 0.7604167
+anchor_bottom = 0.7577161
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_xicax")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page6/Panel1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07984791
+anchor_top = 0.24489792
+anchor_right = 0.92015207
+anchor_bottom = 0.8367346
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_7v0nt")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="NinePatchRect" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23958333
+anchor_top = 0.45524693
+anchor_right = 0.46788195
+anchor_bottom = 0.7577161
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_xicax")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 40
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Tutor/Pages/Page6/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07984791
+anchor_top = 0.24489792
+anchor_right = 0.92015207
+anchor_bottom = 0.8367346
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_r72t8")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="RichTextLabel" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35069445
+anchor_top = 0.20216049
+anchor_right = 0.6493056
+anchor_bottom = 0.2665556
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_font_sizes/normal_font_size = 26
+text = "Air Compressor"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="RichTextLabel" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23177083
+anchor_top = 0.28703704
+anchor_right = 0.7682292
+anchor_bottom = 0.45019758
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Converts mechanical power (from an electric motor or engine) into pneumatic energy by compressing atmospheric air.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="2D" type="RichTextLabel" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2482639
+anchor_top = 0.46296296
+anchor_right = 0.4609375
+anchor_bottom = 0.7356914
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "2D"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Symbol" type="RichTextLabel" parent="UI/Tutor/Pages/Page6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5399306
+anchor_top = 0.46296296
+anchor_right = 0.7526042
+anchor_bottom = 0.7356914
+offset_bottom = 0.27197266
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_j2j10")
+theme_override_colors/default_color = Color(0.20990813, 0.20990813, 0.2099081, 1)
+theme_override_font_sizes/normal_font_size = 21
+text = "SCHEMATIC SYMBOL"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SchematicActivity" parent="UI" instance=ExtResource("16_qu1v0")]
+
+[node name="Talker" parent="UI" instance=ExtResource("9_2gsu2")]
+visible = false
+lines = PackedStringArray("Alright! Since you\'ve learned another set of components, let\'s go for a challenge!")
+
+[node name="Talker5" parent="UI" instance=ExtResource("9_2gsu2")]
+visible = false
+lines = PackedStringArray("Another great job! With those tasks completed, you have unlocked Level 3!", "You are then hereby promoted to Junior Electro-Pneumatics Technician!")
+
+[node name="Talker6" parent="UI" instance=ExtResource("9_2gsu2")]
+visible = false
+lines = PackedStringArray("That one was pretty easy, wasn\'t it? Here\'s another one!")
+
+[node name="PowerMeetsAir" parent="UI" instance=ExtResource("24_xicax")]
+visible = false
+
+[node name="SceneTransitioner" parent="." instance=ExtResource("22_o3rdc")]
+z_index = 99
+layout_mode = 1
+
+[editable path="UI/Tutor/Pages"]

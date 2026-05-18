@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://d10kci84gxe8m"]
+
+[ext_resource type="Script" uid="uid://ftrxq24pueu" path="res://Scripts/warningNotif.gd" id="1_f5oaq"]
+[ext_resource type="Texture2D" uid="uid://dm3vukbnkqtk4" path="res://UI/caution.png" id="1_yxhk2"]
+[ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="2_h8jvq"]
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="3_h8jvq"]
+
+[node name="Warning Notif" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_f5oaq")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.3882353)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7291667
+anchor_top = 0.69598764
+anchor_right = 0.9878472
+anchor_bottom = 0.8657407
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -208.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_yxhk2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3590604
+anchor_top = 0.10909091
+anchor_right = 0.95637584
+anchor_bottom = 0.8909091
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_h8jvq")
+theme_override_font_sizes/normal_font_size = 20
+text = "Incorrect Placement"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" type="Node" parent="Panel"]
+script = ExtResource("3_h8jvq")
+metadata/_custom_type_script = "uid://ckwy4c8mrooou"

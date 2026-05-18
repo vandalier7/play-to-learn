@@ -10,7 +10,7 @@ var eventID: int = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	assert(SignalBus.has_signal(signalName))
+	#assert(SignalBus.has_signal(signalName))
 	SignalBus.startEvent.connect(start)
 	
 

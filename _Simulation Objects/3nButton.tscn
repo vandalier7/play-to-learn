@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2i0dt64b8l4g"]
+
+[ext_resource type="Script" uid="uid://dj2xnyuhpihaq" path="res://_Simulation Objects/simulationScripts/3nButton.gd" id="1_4deuy"]
+[ext_resource type="Texture2D" uid="uid://drurcdalnryjf" path="res://Textures/2D/3N Button.png" id="2_4deuy"]
+[ext_resource type="PackedScene" uid="uid://b7ca684gu7ye3" path="res://Objects/port.tscn" id="3_d4p6l"]
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="4_4t5vr"]
+[ext_resource type="Script" uid="uid://48gae0kwnp2d" path="res://Scripts/clickable.gd" id="5_5itl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4deuy"]
+size = Vector2(52.500008, 42.500015)
+
+[node name="3N Button" type="Node2D" node_paths=PackedStringArray("inputPorts", "outputPorts")]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_4deuy")
+objectName = "3N Button"
+inputPorts = [NodePath("Port")]
+outputPorts = [NodePath("Port2")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4076087, 0.4076087)
+texture = ExtResource("2_4deuy")
+hframes = 2
+
+[node name="Port" parent="." instance=ExtResource("3_d4p6l")]
+position = Vector2(100, -72.5)
+portDirection = Vector2i(0, -1)
+
+[node name="Port2" parent="." instance=ExtResource("3_d4p6l")]
+position = Vector2(100, 55)
+portDirection = Vector2i(0, 1)
+
+[node name="CustomAnimator" type="Node" parent="."]
+script = ExtResource("4_4t5vr")
+metadata/_custom_type_script = "uid://ckwy4c8mrooou"
+
+[node name="ClickableComponent" type="Area2D" parent="."]
+script = ExtResource("5_5itl6")
+metadata/_custom_type_script = "uid://48gae0kwnp2d"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableComponent"]
+position = Vector2(-103.74996, -63.749985)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_4deuy")
+
+[connection signal="clicked" from="ClickableComponent" to="." method="turnOn"]

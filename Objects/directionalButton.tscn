@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://b65qimx2c6t6h"]
+
+[ext_resource type="Texture2D" uid="uid://wn3t48qb7iwn" path="res://UI/directional.png" id="1_ihb3u"]
+[ext_resource type="Script" uid="uid://cvr812cuj2vs4" path="res://Scripts/directionalButton.gd" id="1_k525j"]
+[ext_resource type="Script" uid="uid://48gae0kwnp2d" path="res://Scripts/clickable.gd" id="2_ri5jw"]
+[ext_resource type="Script" uid="uid://ckwy4c8mrooou" path="res://Scripts/customAnimator.gd" id="3_5oucn"]
+
+[node name="DirectionalButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_k525j")
+
+[node name="DirectionalButton" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-46.666504, 233.3335)
+mouse_filter = 2
+texture = ExtResource("1_ihb3u")
+stretch_mode = 5
+
+[node name="ClickableComponent" type="Area2D" parent="DirectionalButton"]
+script = ExtResource("2_ri5jw")
+metadata/_custom_type_script = "uid://48gae0kwnp2d"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DirectionalButton/ClickableComponent"]
+polygon = PackedVector2Array(-0.27697754, 138.2034, 78.72302, 192.2034, -0.27697754, 246.2034)
+
+[node name="CustomAnimator" type="Node" parent="DirectionalButton"]
+script = ExtResource("3_5oucn")
+lerpOffset = true
+metadata/_custom_type_script = "uid://ckwy4c8mrooou"
+
+[connection signal="clicked" from="DirectionalButton/ClickableComponent" to="." method="onClick"]
+[connection signal="released" from="DirectionalButton/ClickableComponent" to="." method="onRelease"]

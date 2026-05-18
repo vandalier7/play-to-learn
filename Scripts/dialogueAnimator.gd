@@ -2,10 +2,14 @@ extends CustomAnimator
 
 class_name DialogueAnimator
 
-func setText(txt: String) -> void:
+func setText(txt: String, hidden: bool = true) -> void:
 	assert(is_instance_of(parent, RichTextLabel))
 	var label: RichTextLabel = parent
-	label.visible_characters = 0
+	if hidden:
+		label.visible_characters = 0
+	else:
+		label.visible_characters = -1
+		
 	label.text = txt
 
 func typewrite(interval: float) -> void:

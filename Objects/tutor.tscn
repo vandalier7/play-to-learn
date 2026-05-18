@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvlkeigl4gake"]
+[gd_scene load_steps=9 format=3 uid="uid://bvlkeigl4gake"]
 
 [ext_resource type="Script" uid="uid://bb63awg1hcske" path="res://Scripts/tutor.gd" id="1_7j1rj"]
 [ext_resource type="PackedScene" uid="uid://cdxgl4pcyqedd" path="res://Objects/customAnimator.tscn" id="2_10ihu"]
@@ -6,6 +6,8 @@
 [ext_resource type="Theme" uid="uid://cu6knafear7ar" path="res://theme.tres" id="4_mahhw"]
 [ext_resource type="PackedScene" uid="uid://r0krljwkcvr5" path="res://Objects/dialogueAnimator.tscn" id="5_vwgng"]
 [ext_resource type="Texture2D" uid="uid://22gt3qlt76r7" path="res://UI/next.png" id="6_m175c"]
+[ext_resource type="Texture2D" uid="uid://880e8kc7141b" path="res://UI/NoBorderWindow.png" id="7_10ihu"]
+[ext_resource type="Texture2D" uid="uid://ynci4aukckc" path="res://UI/back.png" id="8_jvtym"]
 
 [node name="Tutor" type="Control"]
 layout_mode = 3
@@ -16,9 +18,9 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 648)
 script = ExtResource("1_7j1rj")
-lines = PackedStringArray("wsdaa")
 
 [node name="Backdrop" type="ColorRect" parent="."]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,10 +30,12 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.34117648)
 
 [node name="CustomAnimator" parent="Backdrop" instance=ExtResource("2_10ihu")]
+lerpAlpha = false
 
 [node name="CustomAnimator" parent="." instance=ExtResource("2_10ihu")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,15 +54,15 @@ stretch_mode = 4
 [node name="Dialogue" type="RichTextLabel" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.19754767
+anchor_left = 0.19230796
 anchor_top = 0.06545454
-anchor_right = 0.52058434
+anchor_right = 0.47817114
 anchor_bottom = 0.7090909
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_mahhw")
 theme_override_colors/default_color = Color(0.3118496, 0.31184962, 0.3118496, 1)
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 17
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -66,6 +70,7 @@ metadata/_edit_use_anchors_ = true
 [node name="DialogueAnimator" parent="TextureRect/Dialogue" instance=ExtResource("5_vwgng")]
 
 [node name="NextButton" type="TextureButton" parent="TextureRect"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.36387783
@@ -82,10 +87,74 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="CustomAnimator" parent="TextureRect/NextButton" instance=ExtResource("2_10ihu")]
+lerpAlpha = false
 shakeTime = 0.3
 shakeMagnitude = 5.0
 shakeSpeed = 8.0
 
 [node name="CustomAnimator" parent="TextureRect" instance=ExtResource("2_10ihu")]
 
+[node name="TutorialScreen" type="TextureRect" parent="."]
+self_modulate = Color(0.9618141, 0.9618141, 0.961814, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1064815
+anchor_top = 0.106481485
+anchor_right = 0.89351845
+anchor_bottom = 0.8935185
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_10ihu")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="TutorialScreen" instance=ExtResource("2_10ihu")]
+
+[node name="NextButton" type="TextureButton" parent="TutorialScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79889715
+anchor_top = 0.92941177
+anchor_right = 0.9541202
+anchor_bottom = 1.0567006
+offset_right = 0.117004395
+offset_bottom = -0.041015625
+pivot_offset = Vector2(56, 17)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_m175c")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="TutorialScreen/NextButton" instance=ExtResource("2_10ihu")]
+lerpAlpha = false
+shakeTime = 0.3
+shakeMagnitude = 5.0
+shakeSpeed = 8.0
+
+[node name="PrevButton" type="TextureButton" parent="TutorialScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.632353
+anchor_top = 0.92941177
+anchor_right = 0.7875761
+anchor_bottom = 1.0567006
+offset_right = 0.117004395
+offset_bottom = -0.041015625
+pivot_offset = Vector2(56, 17)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_jvtym")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CustomAnimator" parent="TutorialScreen/PrevButton" instance=ExtResource("2_10ihu")]
+shakeTime = 0.3
+shakeMagnitude = 5.0
+shakeSpeed = 8.0
+
 [connection signal="pressed" from="TextureRect/NextButton" to="." method="next"]
+[connection signal="pressed" from="TutorialScreen/NextButton" to="." method="next"]
+[connection signal="pressed" from="TutorialScreen/PrevButton" to="." method="prev"]

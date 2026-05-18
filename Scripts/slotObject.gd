@@ -12,6 +12,7 @@ var holdingLock: bool = false
 
 func _ready() -> void:
 	origin = global_position
+	originalZIndex = z_index
 
 func _process(delta: float) -> void:
 	if not isSlotted:

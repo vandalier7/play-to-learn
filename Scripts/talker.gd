@@ -49,7 +49,6 @@ func next():
 	freshCounter += 1
 	
 	if freshCounter >= lines.size():
-		
 		end()
 		return
 	

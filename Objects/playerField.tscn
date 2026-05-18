@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1nrojtvfktni"]
+
+[ext_resource type="Texture2D" uid="uid://dwq8evmc6aka8" path="res://icon.svg" id="1_kmicm"]
+[ext_resource type="Script" uid="uid://d38ya77ri82w7" path="res://Scripts/playerField.gd" id="2_0o6lx"]
+[ext_resource type="Script" uid="uid://48gae0kwnp2d" path="res://Scripts/clickable.gd" id="2_cyqbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaow0"]
+size = Vector2(126, 128)
+
+[node name="PlayerField" type="Sprite2D"]
+scale = Vector2(9.0390625, 2.3203127)
+texture = ExtResource("1_kmicm")
+script = ExtResource("2_0o6lx")
+
+[node name="ClickableComponent" type="Area2D" parent="."]
+script = ExtResource("2_cyqbm")
+disableHandCursor = true
+metadata/_custom_type_script = "uid://48gae0kwnp2d"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableComponent"]
+shape = SubResource("RectangleShape2D_iaow0")
+
+[connection signal="clicked" from="ClickableComponent" to="." method="onClicked"]

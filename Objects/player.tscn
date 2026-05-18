@@ -1,0 +1,176 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqfrl0yd4q6bq"]
+
+[ext_resource type="Script" uid="uid://dlp5sgf3hqggb" path="res://Scripts/player.gd" id="1_2i4gt"]
+[ext_resource type="Texture2D" uid="uid://dwatnomc7vqd" path="res://Textures/Sheets/NoObj.png" id="1_y0qk3"]
+[ext_resource type="Texture2D" uid="uid://cwkdqxto05qj8" path="res://Textures/Sheets/WithObj.png" id="2_3y5cq"]
+[ext_resource type="Texture2D" uid="uid://dwq8evmc6aka8" path="res://icon.svg" id="4_0ad8t"]
+[ext_resource type="Texture2D" uid="uid://w1qrb6hkb0kj" path="res://Textures/2D/Tank 2D.png" id="5_x20fu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3y5cq"]
+radius = 37.7
+height = 168.51
+
+[sub_resource type="Animation" id="Animation_3y5cq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(357.07, 0, 354.643, 459)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ObjectSlot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 117.00001)]
+}
+
+[sub_resource type="Animation" id="Animation_y0qk3"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 330.141, 459), Rect2(357.07, 0, 354.643, 459), Rect2(727.991, 0, 334.871, 459), Rect2(1108.162, 0, 341.775, 459), Rect2(1481.007, 0, 352.137, 459), Rect2(1878.024, 0, 338.323, 459), Rect2(2267.547, 0, 360.839, 459)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(-18, 0), Vector2(-23, 0), Vector2(-19, 0), Vector2(-17, 0), Vector2(-15, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ObjectSlot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(48, 117.00001), Vector2(64, 117.00001), Vector2(72, 117.00001), Vector2(64, 117.00001), Vector2(72, 117.00001), Vector2(64, 117.00001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2i4gt"]
+_data = {
+&"RESET": SubResource("Animation_3y5cq"),
+&"walk": SubResource("Animation_y0qk3")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x20fu"]
+_data = {
+&"RESET": SubResource("Animation_3y5cq"),
+&"walk": SubResource("Animation_y0qk3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x20fu"]
+size = Vector2(286, 294)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 10
+y_sort_enabled = true
+scale = Vector2(0.25, 0.25)
+motion_mode = 1
+script = ExtResource("1_2i4gt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3y5cq")
+
+[node name="Offseter" type="Sprite2D" parent="."]
+position = Vector2(0, -219)
+
+[node name="NoObjectSprite" type="Sprite2D" parent="Offseter"]
+visible = false
+position = Vector2(-18, 0)
+texture = ExtResource("1_y0qk3")
+region_enabled = true
+region_rect = Rect2(357.07, 0, 354.643, 459)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Offseter/NoObjectSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_2i4gt")
+}
+
+[node name="WithObjectSprite" type="Sprite2D" parent="Offseter"]
+position = Vector2(-18, 0)
+texture = ExtResource("2_3y5cq")
+region_enabled = true
+region_rect = Rect2(357.07, 0, 354.643, 459)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Offseter/WithObjectSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_x20fu")
+}
+
+[node name="ObjectSlot" type="Sprite2D" parent="Offseter"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(64, 117.00001)
+scale = Vector2(0.71875, 0.71875)
+texture = ExtResource("4_0ad8t")
+region_rect = Rect2(100.100044, 134.30003, 124.30001, 116.60002)
+
+[node name="TextureRect" type="TextureRect" parent="Offseter/ObjectSlot"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -94.6087
+offset_top = -94.6087
+offset_right = -33.391296
+offset_bottom = -33.391296
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_x20fu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SlotScanner" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotScanner"]
+position = Vector2(133, -137)
+shape = SubResource("RectangleShape2D_x20fu")
+debug_color = Color(0.34117648, 0.5921569, 0.5254902, 0.20392157)

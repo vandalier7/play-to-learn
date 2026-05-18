@@ -4,6 +4,7 @@ class_name Draggable
 
 var isHolding: bool = false
 var offset: Vector2 = Vector2.ZERO
+var originalZIndex: int
 @onready var area: Area2D = $DraggableArea
 @onready var customAnimator: CustomAnimator = $CustomAnimator
 
@@ -14,7 +15,7 @@ func _process(delta: float) -> void:
 		z_index = 5
 		global_position = get_global_mouse_position() + offset
 	else:
-		z_index = 0
+		z_index = originalZIndex
 	isHoldingLastFrame = isHolding
 
 

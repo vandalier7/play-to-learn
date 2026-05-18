@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7ca684gu7ye3"]
+
+[ext_resource type="Texture2D" uid="uid://dwq8evmc6aka8" path="res://icon.svg" id="1_oiy32"]
+[ext_resource type="Script" uid="uid://duk56hxhfvti7" path="res://Scripts/nodeTest.gd" id="2_6f364"]
+[ext_resource type="Script" uid="uid://48gae0kwnp2d" path="res://Scripts/clickable.gd" id="3_tesip"]
+[ext_resource type="Texture2D" uid="uid://d1gihidgcngjm" path="res://Textures/circle.png" id="4_bvwew"]
+[ext_resource type="Texture2D" uid="uid://wn3t48qb7iwn" path="res://UI/directional.png" id="5_6f364"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vbjg"]
+radius = 29.000004
+
+[node name="Port" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("1_oiy32")
+script = ExtResource("2_6f364")
+portDirection = Vector2i(1, 0)
+
+[node name="ClickableComponent" type="Area2D" parent="."]
+script = ExtResource("3_tesip")
+metadata/_custom_type_script = "uid://48gae0kwnp2d"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableComponent"]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CircleShape2D_2vbjg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+self_modulate = Color(0.2627451, 0.2627451, 0.2627451, 1)
+scale = Vector2(0.3564359, 0.35643566)
+texture = ExtResource("4_bvwew")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2"]
+z_index = 1
+scale = Vector2(0.76923084, 0.769231)
+texture = ExtResource("4_bvwew")
+
+[node name="Directional" type="Sprite2D" parent="."]
+modulate = Color(0.48931473, 0.052516334, 0.47152048, 1)
+z_index = 1
+scale = Vector2(0.367, 0.367)
+texture = ExtResource("5_6f364")
+offset = Vector2(-54.523693, 0)
+
+[connection signal="clicked" from="ClickableComponent" to="." method="onClicked"]
